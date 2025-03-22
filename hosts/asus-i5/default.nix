@@ -49,7 +49,7 @@
       kyrielle = {
         isNormalUser = true;
         description = "Kyrielle";
-        extraGroups = ["networkmanager" "whell"];
+        extraGroups = ["networkmanager" "wheel"];
       };
     };
   };
