@@ -1,12 +1,45 @@
 {config,pkgs, ...}:
 
 {
+  programs.nixvim = {
+    enable = true;
+    globals.mapleader = " ";
+    colorschemes = {
+      kanagawa.enable = true;
+    };
+    plugins = {
+      yazi = {
+        enable = true;
+        autoLoad = true;
+      };
+      which-key = {
+        enable = true;
+        autoLoad = true;
+      };
+      web-devicons = {
+        enable = true;
+        autoLoad = true;
+      };
+    };
+    keymaps = [
+      {
+        key = "<leader>ee";
+        mode = "n";
+        action = "<cmd>Yazi<cr>";
+        options.desc = "Open Explorer";
+      }
+    ];
+    opts = {
+      number = true;
+      relativenumber = true;
+    };
+  };
+
   home = {
     username = "kyrielle";
     homeDirectory = "/home/kyrielle";
     packages = with pkgs; [
       neofetch
-      neovim
 
       starship
       lazygit
@@ -14,16 +47,28 @@
       zoxide
       yazi
 
+      nerd-fonts.caskaydia-cove
+
       ripgrep
       fzf
       jq
       fd
       bat
     ];
+    shell = {
+      enableZshIntegration = true;
+    };
     stateVersion = "25.05";
   };
 
+  fonts = {
+    fontconfig = {
+      enable = true;
+    };
+  };
+
   programs.home-manager.enable = true;
+
   editorconfig = {
     enable = true;
     settings = {
@@ -67,11 +112,7 @@
       e = "$EDITOR";
       lg = "lazygit";
       yz = "yazi";
-      db = "harlequin";
-      cal = "calcure";
-      post = "posting";
       lsa = "ls -la";
-      dev = "echo \"use nix\" > .envrc && direnv allow";
       ".." = "cd ..";
     };
 
