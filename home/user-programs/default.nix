@@ -1,1 +1,1 @@
-{ imports = [ ./yazi ./git ./nixvim ./shell-zsh ]; }
+{ imports = [ ./yazi ./git ./nixvim ./shell-zsh ./kitty ]; }
