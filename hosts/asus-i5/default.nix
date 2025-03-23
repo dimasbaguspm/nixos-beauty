@@ -5,7 +5,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ../../programs/nixvim ];
+  imports = [ ./hardware-configuration.nix ../../global-programs ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -64,7 +64,6 @@
     zsh.enable = true;
   };
 
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 

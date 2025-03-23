@@ -1,37 +1,24 @@
-{config,pkgs, ...}:
-
-{
+{ pkgs, ... }: {
   home = {
     username = "kyrielle";
     homeDirectory = "/home/kyrielle";
     packages = with pkgs; [
       neofetch
-
       starship
-      lazygit
-
-      zoxide
-      yazi
-
       nerd-fonts.caskaydia-cove
-
       ripgrep
       fzf
       jq
       fd
       bat
     ];
-    shell = {
-      enableZshIntegration = true;
-    };
+    shell = { enableZshIntegration = true; };
     stateVersion = "25.05";
   };
 
-  fonts = {
-    fontconfig = {
-      enable = true;
-    };
-  };
+  imports = [ ./user-programs ];
+
+  fonts = { fontconfig = { enable = true; }; };
 
   programs.home-manager.enable = true;
 
@@ -49,42 +36,4 @@
     };
   };
 
-  programs.git = {
-    enable = true;
-    userEmail = "dimas.bagus.pm1@gmail.com";
-    userName = "dimasbaguspm";
-  };
-
-  programs.gh = {
-    enable = true;
-    gitCredentialHelper = {
-      enable = true;
-    };
-  };
-
-  programs.zsh = {
-    enable = true;
-    initExtra = ''
-      eval "$(starship init zsh)"
-      eval "$(zoxide init zsh)"
-    '';
-
-    syntaxHighlighting.enable = true;
-    autosuggestion.enable = true;
-    autocd = true;
-
-    shellAliases = {
-      g = "git";
-      e = "$EDITOR";
-      lg = "lazygit";
-      yz = "yazi";
-      lsa = "ls -la";
-      ".." = "cd ..";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      theme = "robbyrussell";
-    };
-  };
 }
