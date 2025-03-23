@@ -7,17 +7,21 @@
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { nixpkgs, home-manager, nixvim, ... }: {
-    nixosConfigurations = {
-      asus-i5 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit nixvim; };
-        modules = [
-          nixvim.nixosModules.nixvim
-          home-manager.nixosModules.home-manager
-          ./hosts/asus-i5
-        ];
+  outputs = { nixpkgs, home-manager, nixvim, ... }:
+    let
+      rootUser = "kyrielle";
+      currentUser = "kyrielle";
+    in {
+      nixosConfigurations = {
+        asus-i5 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit nixvim currentUser rootUser; };
+          modules = [
+            nixvim.nixosModules.nixvim
+            home-manager.nixosModules.home-manager
+            ./hosts/asus-i5
+          ];
+        };
       };
     };
-  };
 }

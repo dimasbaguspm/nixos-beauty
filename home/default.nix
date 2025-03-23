@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{ args, ... }: {
   home = {
-    username = "kyrielle";
-    homeDirectory = "/home/kyrielle";
-    packages = with pkgs; [
+    username = "${args.currentUser}";
+    homeDirectory = "/home/${args.currentUser}";
+    packages = with args.pkgs; [
       neofetch
       starship
       nerd-fonts.caskaydia-cove
