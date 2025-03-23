@@ -5,7 +5,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ../../global-programs ];
+  imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
