@@ -1,40 +1,6 @@
 {config,pkgs, ...}:
 
 {
-  programs.nixvim = {
-    enable = true;
-    globals.mapleader = " ";
-    colorschemes = {
-      kanagawa.enable = true;
-    };
-    plugins = {
-      yazi = {
-        enable = true;
-        autoLoad = true;
-      };
-      which-key = {
-        enable = true;
-        autoLoad = true;
-      };
-      web-devicons = {
-        enable = true;
-        autoLoad = true;
-      };
-    };
-    keymaps = [
-      {
-        key = "<leader>ee";
-        mode = "n";
-        action = "<cmd>Yazi<cr>";
-        options.desc = "Open Explorer";
-      }
-    ];
-    opts = {
-      number = true;
-      relativenumber = true;
-    };
-  };
-
   home = {
     username = "kyrielle";
     homeDirectory = "/home/kyrielle";

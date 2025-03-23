@@ -2,13 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ ./hardware-configuration.nix ../../programs/nixvim ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -22,17 +19,25 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.xserver.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      desktopManager = { gnome.enable = true; };
+      displayManager = {
+        gdm.enable = true;
+        autoLogin = {
+          enable = true;
+          user = "kyrielle";
+        };
+      };
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+    };
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    printing = { enable = true; };
   };
-
-  services.printing.enable = true;
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -49,19 +54,15 @@
       kyrielle = {
         isNormalUser = true;
         description = "Kyrielle";
-        extraGroups = ["networkmanager" "wheel"];
+        extraGroups = [ "networkmanager" "wheel" ];
       };
     };
   };
 
   programs = {
-    firefox.enable= true;
+    firefox.enable = true;
     zsh.enable = true;
   };
-
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "kyrielle";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
