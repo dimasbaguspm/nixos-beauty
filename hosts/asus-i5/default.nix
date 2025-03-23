@@ -1,23 +1,16 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+{ pkgs, ... }: {
+  imports = [
+    ./hardware-configuration.nix
+    ./nix.nix
+    ./timezone.nix
+    ./internationalization.nix
+  ];
 
-{ pkgs, ... }:
-
-{
-  imports = [ ./hardware-configuration.nix ];
-
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "asus-i5"; # Define your hostname.
-
+  networking.hostName = "asus-i5";
   networking.networkmanager.enable = true;
-
-  time.timeZone = "Asia/Jakarta";
-
-  i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
     xserver = {
@@ -34,19 +27,20 @@
         layout = "us";
         variant = "";
       };
-    };
 
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
     printing = { enable = true; };
   };
 
   hardware.pulseaudio.enable = false;
+
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   users = {
     defaultUserShell = pkgs.zsh;
@@ -66,20 +60,4 @@
 
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
-
-  nixpkgs.config.allowUnfree = true;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  environment = {
-    variables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      CODE_STATS_BASE_URL = "https://codestats.net";
-      CODE_STATS_USERNAME = "dimasbaguspm";
-      CODE_STATS_API =
-        "SFMyNTY.WkdsdFlYTmlZV2QxYzNCdCMjTWpVeE1EUT0.kWTeZEGOsAvznr_mMiWYMzCgPzy8gYwE01teL8AJcyc";
-    };
-  };
-  system.stateVersion = "24.11"; # Did you read the comment?
-
 }
