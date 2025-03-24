@@ -1,1 +1,1 @@
-{ imports = [ ./programs.nix ./home-manager.nix ./system.nix ./user.nix ]; }
+{ imports = [ ./programs.nix ./system.nix ./user.nix ]; }

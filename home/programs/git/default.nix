@@ -1,9 +1,9 @@
-{
+{ userEnv, ... }: {
   programs = {
     git = {
       enable = true;
-      userEmail = "dimas.bagus.pm1@gmail.com";
-      userName = "dimasbaguspm";
+      userEmail = userEnv.GIT_EMAIL;
+      userName = userEnv.GIT_USERNAME;
     };
 
     gh = {

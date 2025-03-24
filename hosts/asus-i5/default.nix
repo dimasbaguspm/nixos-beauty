@@ -1,8 +1,9 @@
 {
   imports = [
     ../../core
-    ../../users
+    ../../home
 
+    ./env.nix
     ./hardware-configuration.nix
     ./boot.nix
     ./network.nix

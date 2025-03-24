@@ -1,1 +1,1 @@
-{ imports = [ ./env.nix ]; }
+{ userVars = builtins.fromJSON (builtins.readFile ./.env.json); }

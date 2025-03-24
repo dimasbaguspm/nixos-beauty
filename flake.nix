@@ -21,11 +21,13 @@
       # beelink-1 - tertiary personal host
       # ss-hp-pavilion - primary work host
       currentHost = "asus-i5";
+
+      userEnv = import ./users { inherit currentUser; };
     in {
       nixosConfigurations = {
         asus-i5 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit nixvim currentUser currentHost; };
+          specialArgs = { inherit nixvim currentUser currentHost userEnv; };
           modules = [
             nixvim.nixosModules.nixvim
             home-manager.nixosModules.home-manager

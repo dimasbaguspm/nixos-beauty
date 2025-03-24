@@ -5,4 +5,6 @@ let
     "leshia" = import ./leshia;
     "silvia" = import ./silvia;
   };
-in { imports = [ settings.${currentUser} or [ ] ]; }
+
+  selectedSettings = settings.${currentUser}.userVars;
+in selectedSettings
