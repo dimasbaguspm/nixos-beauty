@@ -6,6 +6,7 @@
 
     ./plugins/lazy-load.nix
     ./plugins/auto-pairs.nix
+    ./plugins/animation.nix
     ./plugins/supermaven.nix
     ./plugins/code-stats.nix
     ./plugins/code-comment.nix
