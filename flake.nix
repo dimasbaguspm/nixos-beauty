@@ -16,9 +16,10 @@
       currentUser = "kyrielle";
 
       # NOTE: hostname information
-      # asus-i7 - primary personal user
-      # asus-i5 - secondary personal user
-      # ss-hp-pavilion - primary work user
+      # asus-i7 - primary personal host
+      # asus-i5 - secondary personal host
+      # beelink-1 - tertiary personal host
+      # ss-hp-pavilion - primary work host
       currentHost = "asus-i5";
     in {
       nixosConfigurations = {
