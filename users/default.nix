@@ -6,5 +6,5 @@ let
     "silvia" = import ./silvia;
   };
 
-  selectedSettings = settings.${currentUser}.userVars;
+  selectedSettings = settings.${currentUser};
 in selectedSettings

@@ -1,1 +1,1 @@
-{ userVars = builtins.fromJSON (builtins.readFile ./.env.json); }
+builtins.fromJSON (builtins.readFile ./.env.json)

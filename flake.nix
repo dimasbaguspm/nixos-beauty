@@ -14,20 +14,12 @@
       # Silvia - secondary personal user
       # Leshia - primary work user
       currentUser = "kyrielle";
-
-      # NOTE: hostname information
-      # asus-i7 - primary personal host
-      # asus-i5 - secondary personal host
-      # beelink-1 - tertiary personal host
-      # ss-hp-pavilion - primary work host
-      currentHost = "asus-i5";
-
       userEnv = import ./users { inherit currentUser; };
     in {
       nixosConfigurations = {
         asus-i5 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit nixvim currentUser currentHost userEnv; };
+          specialArgs = { inherit nixvim currentUser userEnv; };
           modules = [
             nixvim.nixosModules.nixvim
             home-manager.nixosModules.home-manager

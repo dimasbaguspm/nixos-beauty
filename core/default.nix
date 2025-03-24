@@ -1,1 +1,1 @@
-{ imports = [ ./programs.nix ./system.nix ./user.nix ]; }
+{ imports = [ ./programs.nix ./system.nix ./user.nix ./programming-lang.nix ]; }
