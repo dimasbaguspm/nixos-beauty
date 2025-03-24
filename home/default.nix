@@ -16,7 +16,7 @@
     stateVersion = "25.05";
   };
 
-  imports = [ ./user-programs ];
+  imports = [ ./programs ];
 
   fonts = { fontconfig = { enable = true; }; };
 

@@ -3,7 +3,7 @@
     colorschemes = {
       kanagawa = {
         enable = true;
-        transparent = true;
+        settings = { transparent = true; };
       };
     };
   };

@@ -9,13 +9,22 @@
   };
   outputs = { nixpkgs, home-manager, nixvim, ... }:
     let
-      rootUser = "kyrielle";
+      # NOTE: change the user name to your username
+      # Kyrielle - primary personal user
+      # Silvia - secondary personal user
+      # Leshia - primary work user
       currentUser = "kyrielle";
+
+      # NOTE: hostname information
+      # asus-i7 - primary personal user
+      # asus-i5 - secondary personal user
+      # ss-hp-pavilion - primary work user
+      currentHost = "asus-i5";
     in {
       nixosConfigurations = {
         asus-i5 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit nixvim currentUser rootUser; };
+          specialArgs = { inherit nixvim currentUser currentHost; };
           modules = [
             nixvim.nixosModules.nixvim
             home-manager.nixosModules.home-manager
