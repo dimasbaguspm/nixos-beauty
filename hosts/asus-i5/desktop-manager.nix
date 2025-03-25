@@ -3,13 +3,7 @@
     xserver = {
       enable = true;
       desktopManager = { gnome.enable = true; };
-      displayManager = {
-        gdm.enable = true;
-        autoLogin = {
-          enable = true;
-          user = "kyrielle";
-        };
-      };
+      displayManager = { gdm.enable = true; };
       xkb = {
         layout = "us";
         variant = "";

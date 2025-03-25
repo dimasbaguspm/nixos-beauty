@@ -5,6 +5,4 @@ let
     "leshia" = import ./leshia;
     "silvia" = import ./silvia;
   };
-
-  selectedSettings = settings.${currentUser};
-in selectedSettings
+in settings.${currentUser}

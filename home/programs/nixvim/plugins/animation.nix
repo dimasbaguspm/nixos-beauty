@@ -1,6 +1,12 @@
 {
   programs.nixvim.plugins = {
-    neoscroll.enable = true;
-    smear-cursor.enable = true;
+    neoscroll = {
+      enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
+    };
+    smear-cursor = {
+      enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
+    };
   };
 }

@@ -2,11 +2,16 @@
   programs.nixvim.plugins = {
     nvim-autopairs = {
       enable = true;
-      settings = { disable_filetype = [ "TelescopePrompt" ]; };
+      settings = {disable_filetype = ["TelescopePrompt"];};
+      lazyLoad.settings.event = "DeferredUIEnter";
     };
-    nvim-surround = { enable = true; };
+    nvim-surround = {
+      enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
+    };
     ts-autotag = {
       enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
       settings = {
         aliases = {
           astro = "html";

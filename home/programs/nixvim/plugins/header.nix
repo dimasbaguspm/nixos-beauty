@@ -33,7 +33,6 @@
             persist_buffer_sort = true,
             separator_style = "none",
             always_show_bufferline = true,
-            -- enforce_regular_tabs = true,
           }
         '';
       };
@@ -42,86 +41,51 @@
   programs.nixvim.keymaps = [
     {
       mode = "n";
+      key = "<A-.>";
+      action = "<cmd>BufferLineCycleNext<cr>";
+      options = {desc = "Cycle to next buffer";};
+    }
+
+    {
+      mode = "n";
+      key = "<A-,>";
+      action = "<cmd>BufferLineCyclePrev<cr>";
+      options = {desc = "Cycle to previous buffer";};
+    }
+
+    {
+      mode = "n";
       key = "<Tab>";
       action = "<cmd>BufferLineCycleNext<cr>";
-      options = { desc = "Cycle to next buffer"; };
+      options = {desc = "Cycle to next buffer";};
     }
 
     {
       mode = "n";
       key = "<S-Tab>";
       action = "<cmd>BufferLineCyclePrev<cr>";
-      options = { desc = "Cycle to previous buffer"; };
+      options = {desc = "Cycle to previous buffer";};
     }
 
     {
       mode = "n";
-      key = "<S-l>";
-      action = "<cmd>BufferLineCycleNext<cr>";
-      options = { desc = "Cycle to next buffer"; };
-    }
-
-    {
-      mode = "n";
-      key = "<S-h>";
-      action = "<cmd>BufferLineCyclePrev<cr>";
-      options = { desc = "Cycle to previous buffer"; };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bd";
+      key = "<A-c>";
       action = "<cmd>bdelete<cr>";
-      options = { desc = "Delete buffer"; };
+      options = {desc = "Close buffer";};
     }
 
     {
       mode = "n";
-      key = "<leader>bb";
-      action = "<cmd>e #<cr>";
-      options = { desc = "Switch to Other Buffer"; };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>`";
-      action = "<cmd>e #<cr>";
-      options = { desc = "Switch to Other Buffer"; };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>br";
-      action = "<cmd>BufferLineCloseRight<cr>";
-      options = { desc = "Delete buffers to the right"; };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bl";
-      action = "<cmd>BufferLineCloseLeft<cr>";
-      options = { desc = "Delete buffers to the left"; };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bo";
+      key = "<A-w>";
       action = "<cmd>BufferLineCloseOthers<cr>";
-      options = { desc = "Delete other buffers"; };
+      options = {desc = "Wipeout all buffers except current";};
     }
 
     {
       mode = "n";
-      key = "<leader>bp";
+      key = "<A-p>";
       action = "<cmd>BufferLineTogglePin<cr>";
-      options = { desc = "Toggle pin"; };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bP";
-      action = "<Cmd>BufferLineGroupClose ungrouped<CR>";
-      options = { desc = "Delete non-pinned buffers"; };
+      options = {desc = "Toggle pin";};
     }
   ];
 }

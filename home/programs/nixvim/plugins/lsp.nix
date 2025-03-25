@@ -1,7 +1,7 @@
 {
   programs.nixvim.plugins = {
-    lsp-lines = { enable = true; };
-    lsp-format = { enable = true; };
+    lsp-lines = {enable = true;};
+    lsp-format = {enable = true;};
     lsp = {
       enable = true;
       keymaps = {
@@ -15,8 +15,9 @@
         };
       };
       servers = {
-        nixd = { enable = true; };
-        lua_ls = { enable = true; };
+        nixd = {enable = true;};
+        lua_ls = {enable = true;};
+        vtsls = {enable = true;};
       };
     };
   };

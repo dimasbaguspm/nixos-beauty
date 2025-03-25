@@ -1,10 +1,10 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.nixvim = {
     extraPlugins = with pkgs.vimPlugins; [
       blink-cmp-copilot
       blink-ripgrep-nvim
     ];
-    extraPackages = with pkgs; [ gh ];
+    extraPackages = with pkgs; [gh];
     plugins = {
       blink-cmp-copilot.enable = false;
       blink-cmp-dictionary.enable = true;
@@ -18,8 +18,8 @@
         setupLspCapabilities = true;
 
         settings = {
-          keymap = { preset = "super-tab"; };
-          signature = { enabled = true; };
+          keymap = {preset = "super-tab";};
+          signature = {enabled = true;};
 
           sources = {
             default = [
@@ -27,7 +27,6 @@
               "lsp"
               "path"
               "snippets"
-              # Community
               "copilot"
               "dictionary"
               "emoji"
@@ -68,8 +67,8 @@
                 name = "git";
                 score_offset = 100;
                 opts = {
-                  commit = { };
-                  git_centers = { git_hub = { }; };
+                  commit = {};
+                  git_centers = {git_hub = {};};
                 };
               };
             };
@@ -121,24 +120,24 @@
               border = "none";
               draw = {
                 gap = 1;
-                treesitter = [ "lsp" ];
+                treesitter = ["lsp"];
                 columns = [
-                  { __unkeyed-1 = "label"; }
+                  {__unkeyed-1 = "label";}
                   {
                     __unkeyed-1 = "kind_icon";
                     __unkeyed-2 = "kind";
                     gap = 1;
                   }
-                  { __unkeyed-1 = "source_name"; }
+                  {__unkeyed-1 = "source_name";}
                 ];
               };
             };
-            trigger = { show_in_snippet = false; };
+            trigger = {show_in_snippet = false;};
             documentation = {
               auto_show = true;
-              window = { border = "single"; };
+              window = {border = "single";};
             };
-            accept = { auto_brackets = { enabled = false; }; };
+            accept = {auto_brackets = {enabled = false;};};
           };
         };
       };

@@ -2,10 +2,7 @@
   "nodes": {
     "flake-parts": {
       "inputs": {
-        "nixpkgs-lib": [
-          "nixvim",
-          "nixpkgs"
-        ]
+        "nixpkgs-lib": ["nixvim", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1741352980,
@@ -41,9 +38,7 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1742588233,
@@ -62,16 +57,8 @@
     },
     "ixx": {
       "inputs": {
-        "flake-utils": [
-          "nixvim",
-          "nuschtosSearch",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixvim",
-          "nuschtosSearch",
-          "nixpkgs"
-        ]
+        "flake-utils": ["nixvim", "nuschtosSearch", "flake-utils"],
+        "nixpkgs": ["nixvim", "nuschtosSearch", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1729958008,
@@ -107,9 +94,7 @@
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": ["nixpkgs"],
         "nuschtosSearch": "nuschtosSearch"
       },
       "locked": {
@@ -130,10 +115,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "ixx": "ixx",
-        "nixpkgs": [
-          "nixvim",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixvim", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1741886583,

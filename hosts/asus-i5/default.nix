@@ -3,13 +3,10 @@
     ../../core
     ../../home
 
-    ./env.nix
     ./hardware-configuration.nix
     ./boot.nix
     ./network.nix
     ./security.nix
-    ./timezone.nix
-    ./internationalization.nix
     ./desktop-manager.nix
   ];
 
