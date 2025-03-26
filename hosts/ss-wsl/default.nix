@@ -8,5 +8,10 @@
     enable = true;
     defaultUser = currentUser;
     startMenuLaunchers = true;
+    wslConf = {
+      network = {
+        hostname = "ss-wsl";
+      };
+    };
   };
 }
