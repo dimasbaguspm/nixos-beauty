@@ -3,7 +3,6 @@
     plugins = {
       lazygit = {
         enable = true;
-        settings = {floating_window_winblend = 10;};
       };
       gitsigns = {
         enable = true;
