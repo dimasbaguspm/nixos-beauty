@@ -1,10 +1,14 @@
 {
   imports = [
     ./setting.nix
+    ./highlight.nix
 
     ./themes/kanagawa.nix
 
     ./plugins/lazy-load.nix
+    ./plugins/indent.nix
+    ./plugins/breadcrumb.nix
+    ./plugins/focus.nix
     ./plugins/auto-pairs.nix
     ./plugins/animation.nix
     ./plugins/supermaven.nix

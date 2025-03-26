@@ -5,7 +5,7 @@
       settings = {
         notification = {
           window = {
-            align = "top";
+            align = "bottom";
             winblend = 0;
             x_padding = 1;
             y_padding = 1;

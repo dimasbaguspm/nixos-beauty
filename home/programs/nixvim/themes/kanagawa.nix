@@ -3,7 +3,22 @@
     colorschemes = {
       kanagawa = {
         enable = true;
-        settings = { transparent = true; };
+        settings = {
+          theme = "wave";
+          transparent = true;
+          colors = {
+            theme = {
+              wave = {
+                ui = {
+                  bg_gutter = "none";
+                  float = {
+                    bg = "none";
+                  };
+                };
+              };
+            };
+          };
+        };
       };
     };
   };

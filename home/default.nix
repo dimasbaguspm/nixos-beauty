@@ -1,9 +1,15 @@
-{ currentUser, userEnv, pkgs, nixvim, ... }: {
+{
+  currentUser,
+  userEnv,
+  pkgs,
+  nixvim,
+  ...
+}: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    sharedModules = [ nixvim.homeManagerModules.nixvim ];
-    extraSpecialArgs = { inherit userEnv; };
+    sharedModules = [nixvim.homeManagerModules.nixvim];
+    extraSpecialArgs = {inherit userEnv;};
     users.${currentUser} = {
       home = {
         username = "${currentUser}";
@@ -18,13 +24,13 @@
           fd
           bat
         ];
-        shell = { enableZshIntegration = true; };
+        shell = {enableZshIntegration = true;};
         stateVersion = "25.05";
       };
 
-      imports = [ ./programs ];
+      imports = [./programs];
 
-      fonts = { fontconfig = { enable = true; }; };
+      fonts = {fontconfig = {enable = true;};};
 
       programs.home-manager.enable = true;
 
@@ -41,7 +47,6 @@
           };
         };
       };
-
     };
   };
 }

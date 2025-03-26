@@ -11,6 +11,11 @@
             icon = " ";
           }
           {
+            __unkeyed = "<leader>s";
+            group = "Search";
+            icon = " ";
+          }
+          {
             __unkeyed = "<leader>e";
             group = "Explorer";
             icon = " ";
@@ -18,7 +23,7 @@
           {
             __unkeyed = "<leader>g";
             group = "Git";
-            icon = ":shit:";
+            icon = " ";
           }
           {
             __unkeyed = "<leader>t";
@@ -30,10 +35,15 @@
             group = "Notifications";
             icon = " ";
           }
+          {
+            __unkeyed = "<leader>c";
+            group = "Code";
+            icon = " ";
+          }
         ];
         win = {
           wo = {
-            winblend = 85;
+            winblend = 10;
           };
         };
       };
