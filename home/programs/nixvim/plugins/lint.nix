@@ -17,12 +17,6 @@
         nix = ["deadnix" "nix" "statix"];
         sh = ["shellcheck"];
         yaml = ["yamllint"];
-        javascript = ["eslint_d"];
-        typescript = ["eslint_d"];
-        javascriptreact = ["eslint_d"];
-        typescriptreact = ["eslint_d"];
-        css = ["stylelint"];
-        html = ["htmlhint"];
       };
 
       linters = {
@@ -33,9 +27,6 @@
         shellcheck = {cmd = lib.getExe pkgs.shellcheck;};
         statix = {cmd = lib.getExe pkgs.statix;};
         yamllint = {cmd = lib.getExe pkgs.yamllint;};
-        eslint_d = {cmd = lib.getExe pkgs.eslint_d;};
-        stylelint = {cmd = lib.getExe pkgs.stylelint;};
-        htmlhint = {cmd = lib.getExe pkgs.htmlhint;};
       };
     };
   };
