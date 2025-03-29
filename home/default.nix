@@ -27,6 +27,10 @@
         ];
         shell = {enableZshIntegration = true;};
         stateVersion = "25.05";
+        file."images" = {
+          source = ./assets;
+          recursive = true;
+        };
       };
 
       imports = [./programs];

@@ -4,7 +4,13 @@
     settings = {
       copy_on_select = true;
 
-      background_opacity = "0.7";
+      background_image = "~/images/wallpaper.jpg";
+      background_opacity = "0.8";
+      background_image_layout = "scaled";
+      background_image_linear = true;
+      background_tint = "0.95";
+      background_blur = 1;
+
       linux_display_server = "x11";
       dynamic_background_opacity = true;
 
