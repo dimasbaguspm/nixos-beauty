@@ -21,6 +21,10 @@
       settings = {
         gui = {
           showNumstatInFilesView = true;
+          theme = {
+            selectedLineBgColor = ["#1f1f28"];
+            defaultFgColor = ["#ffa066"];
+          };
         };
 
         git = {
