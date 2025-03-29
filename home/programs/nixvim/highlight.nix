@@ -8,7 +8,7 @@
       underline = true;
     };
     DashboardHeader = {
-      fg = "#806d9c";
+      fg = "#ffa066";
     };
   };
 }
