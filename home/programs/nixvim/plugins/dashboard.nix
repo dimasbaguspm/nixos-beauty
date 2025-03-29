@@ -45,6 +45,16 @@ in {
           inherit header;
           packages.enable = false;
           project.enable = false;
+          shortcut = [
+            {
+              desc = " ${userMetaData.env.GIT_EMAIL}";
+              group = "DashboardShortCut";
+            }
+            {
+              desc = "  ${userMetaData.env.GIT_USERNAME}";
+              group = "DashboardShortCut";
+            }
+          ];
           disable_move = false;
           week_header.enable = false;
           mru = {
@@ -54,7 +64,7 @@ in {
           footer = [
             ""
             ""
-            "@dimasbaguspm 🚀"
+            "@dimasbaguspm 🤪"
           ];
         };
       };

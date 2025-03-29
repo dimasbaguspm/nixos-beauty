@@ -23,7 +23,7 @@
           {
             __unkeyed = "<leader>g";
             group = "Git";
-            icon = " ";
+            icon = "";
           }
           {
             __unkeyed = "<leader>t";
@@ -33,7 +33,7 @@
           {
             __unkeyed = "<leader>n";
             group = "Notifications";
-            icon = " ";
+            icon = "";
           }
           {
             __unkeyed = "<leader>c";

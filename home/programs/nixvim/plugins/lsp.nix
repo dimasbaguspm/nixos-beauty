@@ -28,6 +28,10 @@
         lua_ls = {enable = true;};
         vtsls = {enable = true;};
         eslint = {enable = true;};
+        jsonls = {enable = true;};
+        html = {enable = true;};
+        yamlls = {enable = true;};
+        cssls = {enable = true;};
       };
     };
   };
