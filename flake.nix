@@ -8,41 +8,20 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
-  outputs = {
-    nixpkgs,
-    home-manager,
-    nixvim,
-    nixos-wsl,
-    ...
-  }: let
+  outputs = inputs: let
     # NOTE: change the user name to your username
-    # Kyrielle - primary personal user
-    # Silvia - secondary personal user
-    # Leshia - primary work user
+    # kyrielle - primary personal user
+    # silvia - secondary personal user
+    # leshia - primary work user
     currentUser = "kyrielle";
-    userEnv = import ./users {inherit currentUser;};
-  in {
-    nixosConfigurations = {
-      asus-i5 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit nixvim currentUser userEnv;};
-        modules = [
-          nixvim.nixosModules.nixvim
-          home-manager.nixosModules.home-manager
-          ./hosts/asus-i5
-        ];
-      };
 
-      ss-wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit nixvim currentUser userEnv;};
-        modules = [
-          nixvim.nixosModules.nixvim
-          home-manager.nixosModules.home-manager
-          nixos-wsl.nixosModules.default
-          ./hosts/ss-wsl
-        ];
-      };
+    userMetaData = {
+      name = currentUser;
+      env = import ./users {inherit currentUser;};
+    };
+  in {
+    nixosConfigurations = import ./nixos-configurations.nix {
+      inherit inputs userMetaData;
     };
   };
 }

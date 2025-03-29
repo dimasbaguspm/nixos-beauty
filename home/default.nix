@@ -1,19 +1,20 @@
 {
-  currentUser,
-  userEnv,
+  inputs,
+  userMetaData,
   pkgs,
-  nixvim,
   ...
 }: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    sharedModules = [nixvim.homeManagerModules.nixvim];
-    extraSpecialArgs = {inherit userEnv;};
-    users.${currentUser} = {
+    sharedModules = [inputs.nixvim.homeManagerModules.nixvim];
+    extraSpecialArgs = {inherit userMetaData;};
+    backupFileExtension = "backup";
+
+    users.${userMetaData.name} = {
       home = {
-        username = "${currentUser}";
-        homeDirectory = "/home/${currentUser}";
+        username = "${userMetaData.name}";
+        homeDirectory = "/home/${userMetaData.name}";
         packages = with pkgs; [
           neofetch
           starship

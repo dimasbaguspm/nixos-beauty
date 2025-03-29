@@ -1,4 +1,4 @@
-{currentUser, ...}: {
+{userMetaData, ...}: {
   imports = [
     ../../home
     ../../core
@@ -6,7 +6,7 @@
 
   wsl = {
     enable = true;
-    defaultUser = currentUser;
+    defaultUser = userMetaData.name;
     startMenuLaunchers = true;
     wslConf = {
       network = {

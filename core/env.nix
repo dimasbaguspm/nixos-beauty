@@ -1,1 +1,1 @@
-{ userEnv, ... }: { environment = { variables = userEnv; }; }
+{userMetaData, ...}: {environment = {variables = userMetaData.env;};}
