@@ -75,6 +75,7 @@
               separator.left = "";
               separator.right = "";
             }
+            "filetype"
             {
               __unkeyed = "location";
               color = {};
