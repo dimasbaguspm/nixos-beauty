@@ -46,6 +46,7 @@ in {
           nerd-fonts.caskaydia-cove
           ripgrep
           fzf
+          tree
           jq
           fd
           bat

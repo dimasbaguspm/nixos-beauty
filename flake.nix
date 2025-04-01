@@ -1,5 +1,5 @@
 {
-  description = "dimasbaguspm purgatory";
+  description = "nixos-beauty from dimasbaguspm";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
@@ -20,7 +20,7 @@
     nixosConfigurations = import ./nixos-configurations.nix {
       inherit inputs;
     };
-    devShells."x86_64-linux" = import ./dev-shells.nix {
+    devShells."x86_64-linux" = import ./dev-shells-configurations.nix {
       inherit inputs;
     };
   };
