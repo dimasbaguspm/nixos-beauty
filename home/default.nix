@@ -33,8 +33,8 @@ in {
         inherit defaultSopsFile;
 
         secrets = {
-          CODE_STATS_API.path = "/run/user/1000/secrets/CODE_STATS_API";
-          WAKATIME_API_KEY.path = "/run/user/1000/secrets/WAKATIME_API_KEY";
+          CODE_STATS_API.path = "~/.config/sops-nix/secrets/CODE_STATS_API";
+          WAKATIME_API_KEY.path = "~/.config/sops-nix/secrets/WAKATIME_API_KEY";
         };
       };
 
