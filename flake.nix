@@ -13,10 +13,14 @@
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs = inputs: {
     nixosConfigurations = import ./nixos-configurations.nix {
+      inherit inputs;
+    };
+    devShells."x86_64-linux" = import ./dev-shells.nix {
       inherit inputs;
     };
   };
