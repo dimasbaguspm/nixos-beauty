@@ -23,5 +23,10 @@
          curl_timeout = 5,
       })
     '';
+    plugins = {
+      wakatime = {
+        enable = true;
+      };
+    };
   };
 }

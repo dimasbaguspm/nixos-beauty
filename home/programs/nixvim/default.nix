@@ -12,7 +12,7 @@
     ./plugins/auto-pairs.nix
     ./plugins/animation.nix
     ./plugins/supermaven.nix
-    ./plugins/code-stats.nix
+    ./plugins/code-tracker.nix
     ./plugins/code-comment.nix
     ./plugins/explorer.nix
     ./plugins/lsp.nix

@@ -11,21 +11,13 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
-  outputs = inputs: let
-    # NOTE: change the user name to your username
-    # kyrielle - primary personal user
-    # silvia - secondary personal user
-    # leshia - primary work user
-    currentUser = "kyrielle";
-
-    userMetaData = {
-      name = currentUser;
-      env = import ./users {inherit currentUser;};
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
     };
-  in {
+  };
+  outputs = inputs: {
     nixosConfigurations = import ./nixos-configurations.nix {
-      inherit inputs userMetaData;
+      inherit inputs;
     };
   };
 }

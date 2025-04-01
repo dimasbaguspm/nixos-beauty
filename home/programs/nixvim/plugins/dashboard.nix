@@ -33,7 +33,7 @@
       ""
     ];
   };
-  header = headers."${userMetaData.name}";
+  header = headers."${userMetaData.username}";
 in {
   programs.nixvim.plugins = {
     dashboard = {
