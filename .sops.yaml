@@ -1,9 +1,9 @@
 keys:
-  - &kyrielle_asus-i5 age192gg8vrrpqum5hq75umj3u2x2xy6pemaxceeh3z2n9f7v308le5s9neams
+  - &primary age192gg8vrrpqum5hq75umj3u2x2xy6pemaxceeh3z2n9f7v308le5s9neams
 creation_rules:
   - path_regex: home/users/kyrielle.secret.yaml$
-    age: *kyrielle_asus-i5
+    age: *primary
   - path_regex: home/users/leshia.secret.yaml$
-    age: *kyrielle_asus-i5
+    age: *primary
   - path_regex: home/users/silvia.secret.yaml$
-    age: *kyrielle_asus-i5
+    age: *primary

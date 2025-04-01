@@ -13,7 +13,6 @@
     inherit username;
     env = import ./users/${username}.metadata.nix;
   };
-  defaultSopsFile = ./users/${username}.secret.yaml;
 in {
   home-manager = {
     useGlobalPkgs = true;
@@ -30,7 +29,7 @@ in {
     users.${username} = {
       sops = {
         age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
-        inherit defaultSopsFile;
+        defaultSopsFile = ./users/${username}.secret.yaml;
 
         secrets = {
           CODE_STATS_API.path = "~/.config/sops-nix/secrets/CODE_STATS_API";
