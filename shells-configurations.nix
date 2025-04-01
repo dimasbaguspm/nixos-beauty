@@ -3,5 +3,5 @@
     system = "x86_64-linux";
   };
 in {
-  node = import ./dev-shells/node.nix {inherit pkgs;};
+  node = import ./shells/node.nix {inherit pkgs;};
 }

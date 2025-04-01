@@ -20,7 +20,7 @@
     nixosConfigurations = import ./nixos-configurations.nix {
       inherit inputs;
     };
-    devShells."x86_64-linux" = import ./dev-shells-configurations.nix {
+    devShells."x86_64-linux" = import ./shells-configurations.nix {
       inherit inputs;
     };
   };
