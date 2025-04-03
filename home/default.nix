@@ -3,11 +3,8 @@
   pkgs,
   ...
 }: let
-  # NOTE: This is the username of the user you want to configure
-  # - kyrielle for primary personal user
-  # - leshia for related work
-  # - silvia for secondary personal user
-  username = "kyrielle";
+  globalConfig = import ../.config.nix;
+  username = globalConfig.currentUser;
 
   userMetaData = {
     inherit username;
