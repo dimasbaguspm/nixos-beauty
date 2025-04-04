@@ -5,6 +5,7 @@
 
     ./themes/kanagawa.nix
 
+    ./plugins/search-and-replace.nix
     ./plugins/lazy-load.nix
     ./plugins/indent.nix
     ./plugins/breadcrumb.nix
