@@ -7,3 +7,5 @@ creation_rules:
     age: *primary
   - path_regex: home/users/silvia.secret.yaml$
     age: *primary
+  - path_regex: home/users/kaluna.secret.yaml$
+    age: *primary

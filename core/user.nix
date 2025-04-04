@@ -1,21 +1,26 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   users = {
     defaultUserShell = pkgs.zsh;
     users = {
       kyrielle = {
         isNormalUser = true;
         description = "Kyrielle";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = ["networkmanager" "wheel"];
       };
       silvia = {
         isNormalUser = true;
         description = "Silvia";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = ["networkmanager" "wheel"];
       };
       leshia = {
         isNormalUser = true;
         description = "Leshia";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = ["networkmanager" "wheel"];
+      };
+      kaluna = {
+        isNormalUser = true;
+        description = "Kaluna";
+        extraGroups = ["networkmanager" "wheel"];
       };
     };
   };
