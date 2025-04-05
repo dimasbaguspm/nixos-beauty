@@ -12,17 +12,20 @@ This is a flake that contains my personal NixOS configuration
 │   ├── system.nix
 │   ├── timezone.nix
 │   └── user.nix
-├── dev-shells/                    # dev shells configurations
-├── home/                          # home configurations
+│ 
+├── home/                          # home-manager configurations
 │   ├── assets/                    # where the images or plain config are stored
 │   ├── programs/                  # home manager modules programs
 │   └── users/                     # user settings and secrets configurations
+│ 
+├── shells/                        # place where the builtin dev shells are live
+│ 
 ├── hosts/
-├── .sops.yaml                     # sops setup file
-├── nixos-configurations.yaml      # host registration to nixos module
-├── dev-shells-configurations.yaml # sops setup file
+│ 
+├── .config.nix                    # central config to decide which user and system to use
+├── .sops.yaml                     # setup encryption for secrets
 ├── flake.lock
-└── flake.nix
+└── flake.nix                      # flake configuration
 ```
 
 ## Installation
@@ -31,7 +34,7 @@ This is a flake that contains my personal NixOS configuration
 
 - Nix installed
 - NixOS installed
-- Private key for this age key (`age192gg8vrrpqum5hq75umj3u2x2xy6pemaxceeh3z2n9f7v308le5s9neams`)
+- Private key for this public age key (`age192gg8vrrpqum5hq75umj3u2x2xy6pemaxceeh3z2n9f7v308le5s9neams`)
 
 ### Steps
 

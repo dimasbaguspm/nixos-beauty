@@ -17,10 +17,10 @@
     };
   };
   outputs = inputs: {
-    nixosConfigurations = import ./nixos-configurations.nix {
+    nixosConfigurations = import ./hosts {
       inherit inputs;
     };
-    devShells."x86_64-linux" = import ./shells-configurations.nix {
+    devShells = import ./shells {
       inherit inputs;
     };
   };

@@ -1,6 +1,9 @@
-{inputs, ...}: {
+{inputs, ...}: let
+  globalConfig = import ../.config.nix;
+  inherit (globalConfig) system;
+in {
   asus-i5 = inputs.nixpkgs.lib.nixosSystem {
-    system = "x86_64-linux";
+    inherit system;
     specialArgs = {
       inherit inputs;
     };
@@ -8,12 +11,12 @@
       inputs.nixvim.nixosModules.nixvim
       inputs.home-manager.nixosModules.home-manager
       inputs.sops-nix.nixosModules.sops
-      ./hosts/asus-i5
+      ./asus-i5
     ];
   };
 
   ss-wsl = inputs.nixpkgs.lib.nixosSystem {
-    system = "x86_64-linux";
+    inherit system;
     specialArgs = {
       inherit inputs;
     };
@@ -22,7 +25,7 @@
       inputs.home-manager.nixosModules.home-manager
       inputs.nixos-wsl.nixosModules.default
       inputs.sops-nix.nixosModules.sops
-      ./hosts/ss-wsl
+      ./ss-wsl
     ];
   };
 }
