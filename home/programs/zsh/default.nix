@@ -16,6 +16,7 @@
       export CODE_STATS_BASE_URL=${userMetaData.env.CODE_STATS_BASE_URL}
       export CODE_STATS_API=$(cat ${config.sops.secrets.CODE_STATS_API.path})
       export WAKATIME_API_KEY=$(cat ${config.sops.secrets.WAKATIME_API_KEY.path})
+      export NPM_TOKEN=$(cat ${config.sops.secrets.NPM_TOKEN_KEY.path})
 
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh)"

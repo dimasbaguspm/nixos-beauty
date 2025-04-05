@@ -31,6 +31,7 @@ in {
         secrets = {
           CODE_STATS_API.path = "~/.config/sops-nix/secrets/CODE_STATS_API";
           WAKATIME_API_KEY.path = "~/.config/sops-nix/secrets/WAKATIME_API_KEY";
+          NPM_TOKEN_KEY.path = "~/.config/sops-nix/secrets/NPM_TOKEN_KEY";
         };
       };
 
