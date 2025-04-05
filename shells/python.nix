@@ -4,7 +4,7 @@
     [
       python312
     ]
-    ++ (with pkgs.python311Packages; [
+    ++ (with pkgs.python312Packages; [
       pip
       venvShellHook
     ]);
@@ -20,7 +20,7 @@ in
       echo ""
       echo "Installed packages:"
       echo "Python version: `python --version`"
-      echo "pip"
+      echo "Pip version: `pip --version`"
       echo ""
       echo "You can run any node command with 'python'"
 

@@ -1,11 +1,5 @@
 keys:
   - &primary age192gg8vrrpqum5hq75umj3u2x2xy6pemaxceeh3z2n9f7v308le5s9neams
 creation_rules:
-  - path_regex: home/users/kyrielle.secret.yaml$
-    age: *primary
-  - path_regex: home/users/leshia.secret.yaml$
-    age: *primary
-  - path_regex: home/users/silvia.secret.yaml$
-    age: *primary
-  - path_regex: home/users/kaluna.secret.yaml$
+  - path_regex: home/users/.*\.secret.yaml$
     age: *primary

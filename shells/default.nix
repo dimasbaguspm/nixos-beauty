@@ -1,6 +1,5 @@
 {inputs, ...}: let
-  globalConfig = import ../.config.nix;
-  inherit (globalConfig) system;
+  inherit (import ../.config.nix) system;
 in {
   "${system}" = let
     pkgs = import inputs.nixpkgs {
