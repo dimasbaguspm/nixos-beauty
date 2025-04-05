@@ -4,4 +4,5 @@
   };
 in {
   node = import ./shells/node.nix {inherit pkgs;};
+  python = import ./shells/python.nix {inherit pkgs;};
 }

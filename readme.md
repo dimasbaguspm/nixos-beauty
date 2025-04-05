@@ -48,6 +48,7 @@ It's mandatory to run the following command before running the dev shell
 
 ```bash
 nix develop .#node # to run the node shell
+nix develop .#python # to run the python shell
 ```
 
 ## Acknowledgements
