@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   packages = with pkgs; [
-    nodejs_22
-    corepack_22
+    nodejs_23
+    corepack_23
   ];
 in
   pkgs.mkShell {
