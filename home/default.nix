@@ -3,9 +3,7 @@
   pkgs,
   ...
 }: let
-  globalConfig = import ../.config.nix;
-  username = globalConfig.currentUser;
-
+  inherit (import ../.config.nix) username;
   userMetaData = {
     inherit username;
     env = import ./users/${username}.metadata.nix;

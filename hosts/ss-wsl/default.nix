@@ -1,6 +1,5 @@
 _: let
-  globalConfig = import ../../.config.nix;
-  username = globalConfig.currentUser;
+  inherit (import ../../.config.nix) username;
 in {
   imports = [
     ../../home

@@ -4,6 +4,6 @@
   # - silvia for secondary personal user
   # - leshia for related work with softwareseni (ss-dimasm)
   # - kaluna for related work with reapit (dbagus_Reapit)
-  currentUser = "kyrielle";
+  username = "kyrielle";
   system = "x86_64-linux";
 }
