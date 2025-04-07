@@ -120,14 +120,14 @@
                 key = "Breaking";
                 options = [
                   {
-                    name = "Yes";
-                    value = "yes";
-                    description = "This change contains a breaking change";
-                  }
-                  {
                     name = "No";
                     value = "no";
                     description = "This change does not contain a breaking change";
+                  }
+                  {
+                    name = "Yes";
+                    value = "yes";
+                    description = "This change contains a breaking change";
                   }
                 ];
               }
