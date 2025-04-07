@@ -49,10 +49,16 @@ This is a flake that contains my personal NixOS configuration
 Currently only node dev shells are supported
 It's mandatory to run the following command before running the dev shell
 
-```bash
-nix develop .#node # to run the node shell
-nix develop .#python # to run the python shell
-```
+### Node Shell
+
+- `nix develop .#node_23`
+- `nix develop .#node_22`
+- `nix develop .#node_20`
+- `nix develop .#node_18`
+
+### Python Shell
+
+- `nix develop .#python`
 
 ## Acknowledgements
 

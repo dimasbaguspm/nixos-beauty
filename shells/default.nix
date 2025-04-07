@@ -6,7 +6,11 @@ in {
       inherit system;
     };
   in {
-    node = import ./node.nix {inherit pkgs;};
+    node_23 = import ./node_23.nix {inherit pkgs;};
+    node_22 = import ./node_22.nix {inherit pkgs;};
+    node_20 = import ./node_20.nix {inherit pkgs;};
+    node_18 = import ./node_18.nix {inherit pkgs;};
+
     python = import ./python.nix {inherit pkgs;};
   };
 }
