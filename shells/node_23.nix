@@ -5,7 +5,7 @@
   ];
 in
   pkgs.mkShell {
-    name = "node";
+    name = "node_23";
     inherit packages;
     shellHook = ''
 
