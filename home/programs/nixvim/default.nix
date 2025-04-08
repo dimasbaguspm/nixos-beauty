@@ -37,7 +37,10 @@
 
   programs.nixvim = {
     enable = true;
-    globals.mapleader = " ";
+    globals = {
+      mapleader = " ";
+      maplocalleader = ",";
+    };
     clipboard = {
       register = "unnamedplus";
       providers = {wl-copy.enable = true;};

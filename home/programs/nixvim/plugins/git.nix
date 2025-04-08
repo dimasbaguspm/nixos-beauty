@@ -16,6 +16,11 @@
       };
       diffview = {
         enable = true;
+        fileHistoryPanel = {
+          winConfig = {
+            position = "left";
+          };
+        };
       };
     };
     keymaps = [
@@ -26,18 +31,46 @@
         options.desc = "Open LazyGit";
       }
       {
-        key = "<leader>gd";
+        key = "<leader>gco";
         action.__raw = ''
           function()
             if next(require("diffview.lib").views) == nil then
-              vim.cmd("DiffviewOpen")
+              vim.cmd("DiffviewOpen origin")
             else
               vim.cmd("DiffviewClose")
             end
           end
         '';
         mode = ["n" "v"];
-        options.desc = "Open Diffview";
+        options.desc = "Changed Files from Origin";
+      }
+      {
+        key = "<leader>gch";
+        action.__raw = ''
+          function()
+              if next(require("diffview.lib").views) == nil then
+                vim.cmd("DiffviewOpen HEAD")
+              else
+                vim.cmd("DiffviewClose")
+              end
+            end
+        '';
+        mode = ["n" "v"];
+        options.desc = "Changed Files from Head";
+      }
+      {
+        "key" = "<leader>gh";
+        action.__raw = ''
+          function()
+              if next(require("diffview.lib").views) == nil then
+                vim.cmd("DiffviewFileHistory")
+              else
+                vim.cmd("DiffviewClose")
+              end
+            end
+        '';
+        mode = ["n" "v"];
+        options.desc = "Branch History";
       }
     ];
   };
