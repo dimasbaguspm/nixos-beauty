@@ -6,7 +6,7 @@
     ];
     extraPackages = with pkgs; [gh];
     plugins = {
-      blink-cmp-copilot.enable = false;
+      blink-cmp-copilot.enable = true;
       blink-cmp-dictionary.enable = true;
       blink-cmp-spell.enable = true;
       blink-copilot.enable = true;
