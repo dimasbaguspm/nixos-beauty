@@ -5,5 +5,6 @@
     ./user.nix
     ./timezone.nix
     ./internationalization.nix
+    ./environment.nix
   ];
 }
