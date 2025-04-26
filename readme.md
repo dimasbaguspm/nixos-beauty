@@ -1,11 +1,11 @@
 # NixOS Beauty
 
-This is a flake that contains my personal NixOS configuration
+This repository contains my personal NixOS configuration.
 
-## Directory structure
+## Directory Structure
 
 ```bash
-├── core/                          # core configurations that are shared between hosts
+├── core/                          # Core configurations shared between hosts
 │   ├── default.nix
 │   ├── internationalization.nix
 │   ├── programs.nix
@@ -13,19 +13,17 @@ This is a flake that contains my personal NixOS configuration
 │   ├── timezone.nix
 │   └── user.nix
 │ 
-├── home/                          # home-manager configurations
-│   ├── assets/                    # where the images or plain config are stored
-│   ├── programs/                  # home manager modules programs
-│   └── users/                     # user settings and secrets configurations
+├── home/                          # Home-manager configurations
+│   ├── assets/                    # Images or plain configuration files
+│   ├── programs/                  # Home-manager modules for programs
+│   └── users/                     # User settings and secret configurations
 │ 
-├── shells/                        # place where the builtin dev shells are live
+├── shells/                        # Built-in development shells
 │ 
-├── hosts/
+├── hosts/                         # Host-specific configurations
 │ 
-├── .config.nix                    # central config to decide which user and system to use
-├── .sops.yaml                     # setup encryption for secrets
 ├── flake.lock
-└── flake.nix                      # flake configuration
+└── flake.nix                      # Flake configuration
 ```
 
 ## Installation
@@ -34,22 +32,19 @@ This is a flake that contains my personal NixOS configuration
 
 - Nix installed
 - NixOS installed
-- Private key for this public age key (`age192gg8vrrpqum5hq75umj3u2x2xy6pemaxceeh3z2n9f7v308le5s9neams`)
+- Private key for the public age key: `age192gg8vrrpqum5hq75umj3u2x2xy6pemaxceeh3z2n9f7v308le5s9neams`
 
 ### Steps
 
-1. Clone the repository
-2. Enter the repository
-3. Select the user and amend the `username` variable in the `home/default.nix` file
-4. Switch or create the host you want to configure
-5. Run `sudo nixos-rebuild switch --flake .#<host>` to apply the changes
+1. Clone the repository.
+2. Enter the repository.
+3. Select the user and update the `username` variable in the `home/default.nix` file.
+4. Switch or create the host you want to configure.
+5. Run `sudo nixos-rebuild switch --flake .#<host>` to apply the changes.
 
 ## Development Shells
 
-Currently only node dev shells are supported
-It's mandatory to run the following command before running the dev shell
-
-### Node Shell
+### Node Shells
 
 - `nix develop .#node_23`
 - `nix develop .#node_22`
