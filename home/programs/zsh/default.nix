@@ -28,6 +28,7 @@
 
     shellAliases = {
       g = "git";
+      c = "code .";
       e = "$EDITOR";
       lg = "lazygit";
       yz = "yazi";

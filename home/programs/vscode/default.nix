@@ -1,8 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  userMetaData,
+  ...
+}: let
+  inherit (userMetaData) username;
+in {
   programs.vscode = {
     enable = true;
     profiles = {
-      "kyrielle" = {
+      "${username}" = {
         userSettings = {
           "files.autoSave" = "off";
           "editor.fontFamily" = "'CaskaydiaCove Nerd Font', 'monospace', monospace";
@@ -11,10 +17,16 @@
           "editor.formatOnPaste" = true;
           "editor.formatOnType" = false;
           "editor.formatOnSaveMode" = "file";
+          "editor.minimap.enabled" = false;
           "eslint.format.enable" = true;
           "editor.codeActionsOnSave" = {
-            "source.fixAll.eslint" = true;
+            "source.fixAll.eslint" = "always";
           };
+          "git.confirmSync" = true;
+          "git.autofetch" = true;
+          "git.autorefresh" = true;
+          "git.fetchOnPull" = true;
+          "git.pruneOnFetch" = true;
         };
         extensions = with pkgs.vscode-extensions;
           [
