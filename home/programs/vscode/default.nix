@@ -22,8 +22,8 @@ in {
           "editor.codeActionsOnSave" = {
             "source.fixAll.eslint" = "always";
           };
-          "git.confirmSync" = true;
           "git.autofetch" = true;
+          "git.confirmSync" = false;
           "git.autorefresh" = true;
           "git.fetchOnPull" = true;
           "git.pruneOnFetch" = true;
