@@ -27,6 +27,7 @@ in {
           "git.autorefresh" = true;
           "git.fetchOnPull" = true;
           "git.pruneOnFetch" = true;
+          "workbench.iconTheme" = "material-icon-theme";
         };
         extensions = with pkgs.vscode-extensions;
           [
