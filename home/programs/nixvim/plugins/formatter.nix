@@ -7,7 +7,6 @@
 
       lazyLoad.settings = {
         cmd = ["ConformInfo"];
-        event = ["BufWrite"];
       };
 
       settings = {
@@ -21,10 +20,11 @@
           lua = ["stylua"];
           nix = ["alejandra"];
           bash = ["shfmt"];
-          javascript = ["prettierd"];
-          javascriptreact = ["prettierd"];
-          typescript = ["prettierd"];
-          typescriptreact = ["prettierd"];
+          # NOTE: clash with lsp lang
+          # javascript = ["prettierd"];
+          # javascriptreact = ["prettierd"];
+          # typescript = ["prettierd"];
+          # typescriptreact = ["prettierd"];
           css = ["prettierd"];
           html = ["prettierd"];
           json = ["prettierd"];

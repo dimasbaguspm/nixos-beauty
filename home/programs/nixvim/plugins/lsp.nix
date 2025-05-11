@@ -23,6 +23,18 @@
           gt = "type_definition";
         };
       };
+      luaConfig = {
+        post = ''
+          require('lspconfig').eslint.setup({
+            on_attach = function(client, bufnr)
+              vim.api.nvim_create_autocmd("BufWritePre", {
+                buffer = bufnr,
+                command = "EslintFixAll",
+              })
+           end,
+          })
+        '';
+      };
       servers = {
         nixd = {enable = true;};
         lua_ls = {enable = true;};
