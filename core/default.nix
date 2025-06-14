@@ -6,5 +6,6 @@
     ./timezone.nix
     ./internationalization.nix
     ./environment.nix
+    ./docker.nix
   ];
 }
