@@ -5,7 +5,7 @@
 }: {
   programs.zsh = {
     enable = true;
-    initExtra = ''
+    initContent = ''
       export VISUAL=nvim
       export EDITOR=nvim
 

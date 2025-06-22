@@ -10,7 +10,7 @@
     ./desktop-manager.nix
   ];
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
