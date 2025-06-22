@@ -46,7 +46,7 @@ in {
             "editor.formatOnSave" = true;
           };
           "nix.enableLanguageServer" = true;
-          "nix.serverPath" = "nil";
+          "nix.serverPath" = "${pkgs.nil}/bin/nil";
           "nix.serverSettings" = {
             "nil" = {
               "diagnostics" = {
