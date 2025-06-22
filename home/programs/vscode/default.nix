@@ -41,6 +41,19 @@ in {
           "workbench.colorTheme" ="Kanagawa Dragon";
 
           "css.enabledLanguages" = ["html"];
+          "[nix]" = {
+            "editor.defaultFormatter" = "jnoortheen.nix-ide";
+            "editor.formatOnSave" = true;
+          };
+          "nix.enableLanguageServer" = true;
+          "nix.serverPath" = "nil";
+          "nix.serverSettings" = {
+            "nil" = {
+              "diagnostics" = {
+                "enable" = true;
+              };
+            };
+          };
         };
         extensions = with pkgs.vscode-extensions;
           [
@@ -93,6 +106,12 @@ in {
               publisher = "ecmel";
               version = "2.0.13";
               sha256 = "sha256-2BtvIyeUaABsWjQNCSAk0WaGD75ecRA6yWbM/OiMyM0=";
+            }
+            {
+              name = "nix-ide";
+              publisher = "jnoortheen";
+              version = "0.4.21";
+              sha256 = "sha256-OdZWJNdMmP8sXBc3Krv60CoThJiA809EmTmp8V8uC4o=";
             }
           ];
       };
