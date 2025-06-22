@@ -1,12 +1,13 @@
-{
-  pkgs,
-  userMetaData,
-  ...
-}: let
+{ pkgs
+, userMetaData
+, ...
+}:
+let
   inherit (userMetaData) username;
   # define the version of vscode that want to use
   version = "1.101.1";
-in {
+in
+{
   programs.vscode = {
     enable = true;
     package = pkgs.vscode.overrideAttrs (_: {
@@ -38,9 +39,9 @@ in {
           "git.fetchOnPull" = true;
           "git.pruneOnFetch" = true;
           "workbench.iconTheme" = "material-icon-theme";
-          "workbench.colorTheme" ="Kanagawa Dragon";
+          "workbench.colorTheme" = "Kanagawa Dragon";
 
-          "css.enabledLanguages" = ["html"];
+          "css.enabledLanguages" = [ "html" ];
           "[nix]" = {
             "editor.defaultFormatter" = "jnoortheen.nix-ide";
             "editor.formatOnSave" = true;
@@ -51,6 +52,9 @@ in {
             "nil" = {
               "diagnostics" = {
                 "enable" = true;
+              };
+              "formatting" = {
+                "command" = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
               };
             };
           };
