@@ -5,7 +5,7 @@
 }: let
   inherit (userMetaData) username;
   # define the version of vscode that want to use
-  version = "1.100.0";
+  version = "1.101.1";
 in {
   programs.vscode = {
     enable = true;
@@ -14,7 +14,7 @@ in {
       src = pkgs.fetchurl {
         name = "VSCode_${version}_linux-x64.tar.gz";
         url = "https://update.code.visualstudio.com/${version}/linux-x64/stable";
-        sha256 = "sha256-egvyjMpmSyUUo4PdHpORNAA5pabVVKSZdn7zqRa1/kM=";
+        sha256 = "sha256-Rr7JNWloV4VkgGk9zDEnD/WRHSYv5su8UrOSIl3247c=";
       };
     });
     profiles = {
@@ -55,20 +55,20 @@ in {
             {
               name = "copilot";
               publisher = "github";
-              version = "1.284.0";
-              sha256 = "sha256-SoagiauSRbBjYouW1QDC9ZNgMl9lDH+UwtuITKsZAz8=";
+              version = "1.336.0";
+              sha256 = "sha256-7IiYfOX3Xl3cW5FcG+7FjGAmkw7Wa9802eguRmaFE5Y=";
             }
             {
               name = "copilot-chat";
               publisher = "github";
-              version = "0.27.0";
-              sha256 = "sha256-i7KKW+aM8P1nrgnLZssgAlKm1kaQyeh285EnoN9Bwps=";
+              version = "0.28.0";
+              sha256 = "sha256-Pc04vtCSPlXALPnFtgQcEVa+exzfkYqFh/b8K3bUBJg=";
             }
             {
               name = "material-icon-theme";
               publisher = "PKief";
-              version = "4.28.0";
-              sha256 = "sha256-DO3dcJPk+TMhfb0IJ/eTB7nIKfyCXIiyhZFBpZjJzsM=";
+              version = "5.23.0";
+              sha256 = "sha256-numOqtLBqPKhlHXpdKtzg423vijR0p0a8f9niR2WrCc=";
             }
             {
               name = "kanagawa-vscode-color-theme";
@@ -79,8 +79,8 @@ in {
             {
               name = "vscode-github-actions";
               publisher = "github";
-              version = "0.27.1";
-              sha256 = "sha256-mHKaWXSyDmsdQVzMqJI6ctNUwE/6bs1ZyeAEWKg9CV8=";
+              version = "0.27.2";
+              sha256 = "sha256-yWQQxYRdU5WWaIiGvCtLYH3mrwDv+frm2ml1S1KPThk=";
             }
             {
               name = "jsoncrack-vscode";
