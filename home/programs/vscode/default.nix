@@ -113,6 +113,12 @@ in {
               version = "0.4.21";
               sha256 = "sha256-OdZWJNdMmP8sXBc3Krv60CoThJiA809EmTmp8V8uC4o=";
             }
+            {
+              name = "ng-template";
+              publisher = "angular";
+              version = "20.0.1";
+              sha256 = "sha256-N+2uNX1gXGHAvkx2aff9DfB7vji8bXNLt86yaSYt0o0=";
+            }
           ];
       };
     };
