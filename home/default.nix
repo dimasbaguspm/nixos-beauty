@@ -57,6 +57,12 @@ in
           swww
           dunst
           pavucontrol
+          rofi-wayland
+          waybar
+          brightnessctl
+          wlogout
+          hyprlock
+          swaylock-effects
         ];
         shell = { enableZshIntegration = true; };
         stateVersion = "25.05";

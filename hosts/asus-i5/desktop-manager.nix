@@ -1,10 +1,13 @@
 { pkgs, ... }:
 {
-  # Enable Hyprland window manager
+  # Enable Hyprland window manager (system-level)
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
+
+  # Optional: Hint Electron apps to use Wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable XDG desktop portal for screen sharing and file picker
   xdg.portal = {
@@ -52,31 +55,8 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
 
-    # Application launcher
-    rofi-wayland
-
-    # Notification daemon
-    dunst
-
-    # Wallpaper setter
-    swww
-
-    # Screenshot tool
-    grim
-    slurp
-    wl-clipboard
-    libnotify # For notify-send command
-
-    # Status bar
-    waybar
-
-    # Audio control
-    pavucontrol
-    pipewire
-    wireplumber
-
-    # Brightness control
-    brightnessctl
+    # Required for the default Hyprland config
+    kitty
 
     # System utilities
     htop
@@ -88,9 +68,9 @@
     # Image viewer
     feh
 
-    # Quick actions
-    wlogout
-    hyprlock
-    swaylock-effects
+    # Essential tools (these are needed at system level)
+    libnotify # For notify-send command
+    pipewire
+    wireplumber
   ];
 }
