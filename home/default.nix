@@ -66,6 +66,38 @@ in
             source = ./assets;
             recursive = true;
           };
+
+          ".local/bin/screenshot" = {
+            text = ''
+              #!/usr/bin/env bash
+              
+              # Create Pictures directory if it doesn't exist
+              mkdir -p ~/Pictures
+              
+              # Get current date and time for filename
+              timestamp=$(date +%Y%m%d-%H%M%S)
+              
+              case "$1" in
+                "area")
+                  grim -g "$(slurp)" ~/Pictures/screenshot-$timestamp.png
+                  notify-send "Screenshot" "Area screenshot saved to ~/Pictures/screenshot-$timestamp.png"
+                  ;;
+                "full")
+                  grim ~/Pictures/fullscreen-$timestamp.png
+                  notify-send "Screenshot" "Full screenshot saved to ~/Pictures/fullscreen-$timestamp.png"
+                  ;;
+                "copy")
+                  grim -g "$(slurp)" - | wl-copy
+                  notify-send "Screenshot" "Screenshot copied to clipboard"
+                  ;;
+                *)
+                  echo "Usage: screenshot {area|full|copy}"
+                  exit 1
+                  ;;
+              esac
+            '';
+            executable = true;
+          };
         };
       };
 

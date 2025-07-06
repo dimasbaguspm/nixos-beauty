@@ -47,7 +47,11 @@
 
   # Enable some essential packages for Hyprland
   environment.systemPackages = with pkgs; [
-    # Terminal emulator (you already have kitty configured)
+    # Better file manager
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.thunar-archive-plugin
+
     # Application launcher
     rofi-wayland
 
@@ -60,14 +64,33 @@
     # Screenshot tool
     grim
     slurp
-
-    # Clipboard manager
     wl-clipboard
+    libnotify # For notify-send command
 
     # Status bar
     waybar
 
-    # File manager (you already have yazi, but GUI option)
-    nautilus
+    # Audio control
+    pavucontrol
+    pipewire
+    wireplumber
+
+    # Brightness control
+    brightnessctl
+
+    # System utilities
+    htop
+    btop
+
+    # Archive support for file manager
+    file-roller
+
+    # Image viewer
+    feh
+
+    # Quick actions
+    wlogout
+    hyprlock
+    swaylock-effects
   ];
 }

@@ -5,14 +5,14 @@
     package = pkgs.rofi-wayland;
     theme = {
       "*" = {
-        bg-col = "#1e1e2e";
-        bg-col-light = "#1e1e2e";
-        border-col = "#b4befe";
-        selected-col = "#1e1e2e";
-        blue = "#89b4fa";
-        fg-col = "#cdd6f4";
-        fg-col2 = "#f38ba8";
-        grey = "#6c7086";
+        bg-col = "#1e2030"; # Dark blue background
+        bg-col-light = "#252842"; # Slightly lighter blue
+        border-col = "#87CEEB"; # Sky blue border
+        selected-col = "#4682B4"; # Steel blue selection
+        blue = "#87CEEB"; # Sky blue accent
+        fg-col = "#E6F3FF"; # Light blue-white text
+        fg-col2 = "#B0E0E6"; # Powder blue secondary text
+        grey = "#6B8CAE"; # Blue-grey
 
         width = 600;
         font = "CaskaydiaCove Nerd Font 14";

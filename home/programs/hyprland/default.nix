@@ -3,6 +3,7 @@
     ./waybar.nix
     ./rofi.nix
     ./dunst.nix
+    ./wlogout.nix
   ];
 } // (
   let
@@ -49,11 +50,11 @@
 
         # General settings
         general = {
-          gaps_in = 5;
-          gaps_out = 20;
+          gaps_in = 2;
+          gaps_out = 8;
           border_size = 2;
-          "col.active_border" = "rgba(957FB8ee) rgba(DCA561ee) 45deg";
-          "col.inactive_border" = "rgba(595959aa)";
+          "col.active_border" = "rgba(87CEEBee) rgba(4682B4ee) 45deg"; # Sky blue gradient
+          "col.inactive_border" = "rgba(2C3E50aa)"; # Dark blue-gray
 
           layout = "dwindle";
           allow_tearing = false;
@@ -61,19 +62,14 @@
 
         # Decoration settings
         decoration = {
-          rounding = 10;
+          rounding = 8;
 
           blur = {
             enabled = true;
-            size = 3;
-            passes = 1;
-            vibrancy = 0.1696;
+            size = 4;
+            passes = 2;
+            vibrancy = 0.2;
           };
-
-          drop_shadow = true;
-          shadow_range = 4;
-          shadow_render_power = 3;
-          "col.shadow" = "rgba(1a1a1aee)";
         };
 
         # Animation settings
@@ -114,9 +110,16 @@
         };
 
         # Window rules
-        windowrule = [
-          "float, ^(kitty)$"
-          "float, ^(nautilus)$"
+        windowrulev2 = [
+          "float, class:^(kitty)$"
+          "float, class:^(thunar)$"
+          "float, class:^(pavucontrol)$"
+          "float, class:^(rofi)$"
+          "size 800 600, class:^(thunar)$"
+          "center, class:^(thunar)$"
+          "float, class:^(wlogout)$"
+          "center, class:^(wlogout)$"
+          "size 400 300, class:^(wlogout)$"
         ];
 
         # Key bindings
@@ -127,11 +130,29 @@
           "$mainMod, Q, exec, kitty"
           "$mainMod, C, killactive,"
           "$mainMod, M, exit,"
-          "$mainMod, E, exec, nautilus"
+          "$mainMod, E, exec, thunar"
           "$mainMod, V, togglefloating,"
           "$mainMod, R, exec, rofi -show drun"
           "$mainMod, P, pseudo,"
           "$mainMod, J, togglesplit,"
+
+          # Quick actions
+          "$mainMod, F, fullscreen, 0"
+          "$mainMod SHIFT, F, fullscreen, 1"
+          "$mainMod, T, togglegroup,"
+          "$mainMod, Tab, changegroupactive,"
+          "$mainMod SHIFT, R, exec, hyprctl reload"
+          "$mainMod SHIFT, E, exec, wlogout"
+          "$mainMod, L, exec, hyprlock"
+
+          # Audio controls
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+          # Brightness controls
+          ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+          ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 
           # Move focus with mainMod + arrow keys
           "$mainMod, left, movefocus, l"
@@ -173,8 +194,11 @@
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
 
-          # Screenshot
-          ", Print, exec, grim -g \"$(slurp)\" - | wl-copy"
+          # Screenshot bindings
+          ", Print, exec, ~/.local/bin/screenshot area"
+          "$mainMod, Print, exec, ~/.local/bin/screenshot full"
+          "$mainMod SHIFT, S, exec, ~/.local/bin/screenshot copy"
+          "CTRL SHIFT, Print, exec, ~/.local/bin/screenshot area"
         ];
 
         # Mouse bindings
@@ -189,6 +213,7 @@
           "swww img ~/images/${userWallpaper}"
           "waybar"
           "dunst"
+          "mkdir -p ~/Pictures" # Ensure Pictures directory exists
         ];
       };
     };
