@@ -137,7 +137,7 @@ in
         "$mainMod, M, exit,"
         "$mainMod, E, exec, thunar"
         "$mainMod, V, togglefloating,"
-        "$mainMod, R, exec, rofi -show drun"
+        "$mainMod, R, exec, rofi -show drun -theme-str 'window {location: center; anchor: center;}'"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
 
