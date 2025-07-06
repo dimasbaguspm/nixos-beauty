@@ -1,4 +1,4 @@
-{ userMetaData, ... }: 
+{ userMetaData, ... }:
 let
   wallpapers = {
     "kyrielle" = "kristin-lina-1.png";
@@ -20,10 +20,10 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    
+
     # Optional: Enable systemd integration
     systemd.enable = true;
-    
+
     settings = {
       # Monitor configuration
       monitor = [
