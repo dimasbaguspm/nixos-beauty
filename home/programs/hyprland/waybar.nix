@@ -6,10 +6,7 @@
         layer = "top";
         position = "top";
         height = 30;
-        output = [
-          "eDP-1"
-          "HDMI-A-1"
-        ];
+
 
         modules-left = [ "hyprland/workspaces" "hyprland/mode" "hyprland/scratchpad" ];
         modules-center = [ "hyprland/window" ];
@@ -156,7 +153,6 @@
         color: #ffffff;
         transition-property: background-color;
         transition-duration: .5s;
-        backdrop-filter: blur(10px);
       }
 
       button {
