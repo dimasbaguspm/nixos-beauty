@@ -1,4 +1,5 @@
-{userMetaData, ...}: let
+{ userMetaData, ... }:
+let
   wallpapers = {
     "kyrielle" = "kristin-lina-1.png";
     "kaluna" = "red-1.png";
@@ -7,7 +8,8 @@
   };
 
   randomWallpaper = wallpapers.${userMetaData.username};
-in {
+in
+{
   programs.kitty = {
     enable = true;
     settings = {
@@ -20,7 +22,7 @@ in {
       background_tint = "0.95";
       background_blur = 1;
 
-      linux_display_server = "x11";
+      linux_display_server = "wayland";
       dynamic_background_opacity = true;
 
       hide_window_decorations = "yes";

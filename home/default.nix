@@ -1,14 +1,15 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ inputs
+, pkgs
+, ...
+}:
+let
   inherit (import ../.config.nix) username;
   userMetaData = {
     inherit username;
     env = import ./users/${username}.metadata.nix;
   };
-in {
+in
+{
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -48,8 +49,16 @@ in {
           bat
           sops
           age
+
+          # Wayland/Hyprland tools
+          wl-clipboard
+          grim
+          slurp
+          swww
+          dunst
+          pavucontrol
         ];
-        shell = {enableZshIntegration = true;};
+        shell = { enableZshIntegration = true; };
         stateVersion = "25.05";
 
         file = {
@@ -60,9 +69,9 @@ in {
         };
       };
 
-      imports = [./programs];
+      imports = [ ./programs ];
 
-      fonts = {fontconfig = {enable = true;};};
+      fonts = { fontconfig = { enable = true; }; };
 
       programs.home-manager.enable = true;
 
