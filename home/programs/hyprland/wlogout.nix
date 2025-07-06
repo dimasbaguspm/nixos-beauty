@@ -9,22 +9,10 @@
         keybind = "l";
       }
       {
-        label = "hibernate";
-        action = "systemctl hibernate";
-        text = "Hibernate";
-        keybind = "h";
-      }
-      {
         label = "logout";
         action = "hyprctl dispatch exit";
         text = "Logout";
         keybind = "e";
-      }
-      {
-        label = "shutdown";
-        action = "systemctl poweroff";
-        text = "Shutdown";
-        keybind = "s";
       }
       {
         label = "suspend";
@@ -33,69 +21,143 @@
         keybind = "u";
       }
       {
+        label = "hibernate";
+        action = "systemctl hibernate";
+        text = "Hibernate";
+        keybind = "h";
+      }
+      {
         label = "reboot";
         action = "systemctl reboot";
         text = "Reboot";
         keybind = "r";
+      }
+      {
+        label = "shutdown";
+        action = "systemctl poweroff";
+        text = "Shutdown";
+        keybind = "s";
       }
     ];
     style = ''
       * {
         background-image: none;
         box-shadow: none;
+        font-family: "CaskaydiaCove Nerd Font", sans-serif;
       }
 
       window {
-        background-color: rgba(30, 32, 48, 0.9);
+        background-color: rgba(30, 32, 48, 0.95);
+        backdrop-filter: blur(10px);
       }
 
       button {
         color: #E6F3FF;
-        background-color: rgba(70, 130, 180, 0.8);
+        background: linear-gradient(135deg, rgba(70, 130, 180, 0.9), rgba(135, 206, 235, 0.8));
         border-style: solid;
         border-width: 2px;
-        border-radius: 20px;
-        border-color: #87CEEB;
+        border-radius: 12px;
+        border-color: rgba(135, 206, 235, 0.6);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 25%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-        margin: 5px;
-        transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        background-size: 28%;
+        box-shadow: 
+          0 4px 15px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        margin: 8px;
+        min-height: 80px;
+        min-width: 80px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-weight: 500;
+        font-size: 12px;
       }
 
       button:hover {
-        background-color: rgba(135, 206, 235, 0.9);
-        box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.4);
+        background: linear-gradient(135deg, rgba(135, 206, 235, 0.95), rgba(70, 130, 180, 0.9));
+        border-color: rgba(135, 206, 235, 0.9);
+        box-shadow: 
+          0 8px 25px rgba(135, 206, 235, 0.3),
+          0 4px 15px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px) scale(1.05);
       }
 
       button:focus {
-        background-color: rgba(135, 206, 235, 1.0);
-        box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.5);
+        background: linear-gradient(135deg, rgba(135, 206, 235, 1.0), rgba(70, 130, 180, 0.95));
+        border-color: #87CEEB;
+        box-shadow: 
+          0 0 0 3px rgba(135, 206, 235, 0.4),
+          0 8px 25px rgba(135, 206, 235, 0.4),
+          0 4px 15px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px) scale(1.05);
       }
 
+      /* Modern icon styling using Unicode symbols */
       #lock {
-        background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+        background-image: none;
+      }
+      #lock:before {
+        content: "🔒";
+        font-size: 24px;
+        display: block;
+        text-align: center;
+        margin-bottom: 4px;
       }
 
       #logout {
-        background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+        background-image: none;
+      }
+      #logout:before {
+        content: "🚪";
+        font-size: 24px;
+        display: block;
+        text-align: center;
+        margin-bottom: 4px;
       }
 
       #suspend {
-        background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+        background-image: none;
+      }
+      #suspend:before {
+        content: "💤";
+        font-size: 24px;
+        display: block;
+        text-align: center;
+        margin-bottom: 4px;
       }
 
       #hibernate {
-        background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
+        background-image: none;
+      }
+      #hibernate:before {
+        content: "🐻";
+        font-size: 24px;
+        display: block;
+        text-align: center;
+        margin-bottom: 4px;
       }
 
       #shutdown {
-        background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+        background-image: none;
+      }
+      #shutdown:before {
+        content: "⏻";
+        font-size: 24px;
+        display: block;
+        text-align: center;
+        margin-bottom: 4px;
       }
 
       #reboot {
-        background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+        background-image: none;
+      }
+      #reboot:before {
+        content: "🔄";
+        font-size: 24px;
+        display: block;
+        text-align: center;
+        margin-bottom: 4px;
       }
     '';
   };

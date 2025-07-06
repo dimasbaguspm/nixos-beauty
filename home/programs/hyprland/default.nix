@@ -124,7 +124,7 @@ in
         "center, class:^(thunar)$"
         "float, class:^(wlogout)$"
         "center, class:^(wlogout)$"
-        "size 400 300, class:^(wlogout)$"
+        "size 480 320, class:^(wlogout)$"
       ];
 
       # Key bindings
