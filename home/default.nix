@@ -57,7 +57,7 @@ in
           swww
           dunst
           pavucontrol
-          rofi-wayland
+          walker
           waybar
           brightnessctl
           wlogout

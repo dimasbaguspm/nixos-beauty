@@ -12,7 +12,7 @@ in
 {
   imports = [
     ./waybar.nix
-    ./rofi.nix
+    ./walker.nix
     ./dunst.nix
     ./wlogout.nix
   ];
@@ -119,7 +119,7 @@ in
         "float, class:^(kitty)$"
         "float, class:^(thunar)$"
         "float, class:^(pavucontrol)$"
-        "float, class:^(rofi)$"
+        "float, class:^(walker)$"
         "size 800 600, class:^(thunar)$"
         "center, class:^(thunar)$"
         "float, class:^(wlogout)$"
@@ -137,7 +137,7 @@ in
         "$mainMod, M, exit,"
         "$mainMod, E, exec, thunar"
         "$mainMod, V, togglefloating,"
-        "$mainMod, R, exec, rofi -show drun -theme-str 'window {location: center; anchor: center;}'"
+        "$mainMod, R, exec, walker"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
 
@@ -218,6 +218,7 @@ in
         "swww img ~/images/${userWallpaper}"
         "waybar"
         "dunst"
+        "walker --gapplication-service"
         "mkdir -p ~/Pictures" # Ensure Pictures directory exists
       ];
     };
