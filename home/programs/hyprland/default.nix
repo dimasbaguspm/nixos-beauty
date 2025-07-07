@@ -147,7 +147,6 @@ in
         "$mainMod, T, togglegroup,"
         "$mainMod, Tab, changegroupactive,"
         "$mainMod SHIFT, R, exec, hyprctl reload"
-        "$mainMod SHIFT, E, exec, wlogout"
         "$mainMod, L, exec, hyprlock"
 
         # Audio controls
@@ -170,6 +169,22 @@ in
         "$mainMod, l, movefocus, r"
         "$mainMod, k, movefocus, u"
         "$mainMod, j, movefocus, d"
+
+        # Navigate between windows with Alt + Tab
+        "ALT, Tab, cyclenext,"
+        "ALT SHIFT, Tab, cyclenext, prev"
+
+        # Switch workspaces with Alt + hjkl (vim keys)
+        "ALT, h, workspace, e-1"
+        "ALT, l, workspace, e+1"
+        "ALT, k, workspace, e-1"
+        "ALT, j, workspace, e+1"
+
+        # Switch workspaces with Alt + arrow keys
+        "ALT, left, workspace, e-1"
+        "ALT, right, workspace, e+1"
+        "ALT, up, workspace, e-1"
+        "ALT, down, workspace, e+1"
 
         # Switch workspaces with mainMod + [0-9]
         "$mainMod, 1, workspace, 1"
@@ -195,9 +210,9 @@ in
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-        # Scroll through existing workspaces with mainMod + scroll
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
+        # Example: Scroll through existing workspaces (kept for reference)
+        # "$mainMod, mouse_down, workspace, e+1"
+        # "$mainMod, mouse_up, workspace, e-1"
 
         # Screenshot bindings
         ", Print, exec, ~/.local/bin/screenshot area"
