@@ -117,11 +117,11 @@ in
       # Window rules
       windowrulev2 = [
         "float, class:^(kitty)$"
-        "float, class:^(thunar)$"
+        "float, class:^(nautilus)$"
         "float, class:^(pavucontrol)$"
         "float, class:^(walker)$"
-        "size 800 600, class:^(thunar)$"
-        "center, class:^(thunar)$"
+        "size 800 600, class:^(nautilus)$"
+        "center, class:^(nautilus)$"
         "float, class:^(wlogout)$"
         "center, class:^(wlogout)$"
         "size 480 320, class:^(wlogout)$"
@@ -135,7 +135,7 @@ in
         "$mainMod, Q, exec, kitty"
         "$mainMod, C, killactive,"
         "$mainMod, M, exit,"
-        "$mainMod, E, exec, thunar"
+        "$mainMod, E, exec, nautilus"
         "$mainMod, V, togglefloating,"
         "$mainMod, R, exec, walker"
         "$mainMod, P, pseudo,"

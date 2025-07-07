@@ -51,10 +51,8 @@
   # Enable some essential packages for Hyprland
   environment.systemPackages = with pkgs; [
     # Better file manager
-    xfce.thunar
-    xfce.thunar-volman
-    xfce.thunar-archive-plugin
-
+    nautilus
+    
     # Required for the default Hyprland config
     kitty
 
