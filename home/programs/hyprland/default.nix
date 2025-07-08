@@ -61,7 +61,7 @@ in
         "col.active_border" = "rgb(c0caf5) rgb(1793d1) 45deg"; # Light blue-gray to accent blue gradient
         "col.inactive_border" = "rgb(13131d)"; # Very dark purple from active workspace
 
-        layout = "dwindle";
+        layout = "master";
         allow_tearing = false;
       };
 
@@ -100,7 +100,23 @@ in
       };
 
       master = {
-        new_status = "master";
+        new_status = "master"; # master: new window becomes master; slave: new windows are added to slave stack; inherit: inherit from focused window
+        new_on_top = false; # whether a newly open window should be on the top of the stack
+        new_on_active = "none"; # before, after: place new window relative to the focused window; none: use new_on_top value
+
+        mfact = 0.65; # master window takes 65% of screen width
+
+        orientation = "left"; # master area on left, slaves on right (left, right, top, bottom, center)
+        inherit_fullscreen = true; # inherit fullscreen status when cycling/swapping windows
+        always_keep_position = false; # keep master in position when no slave windows
+
+        slave_count_for_center_master = 2; # minimum slaves needed for center master layout
+        center_master_fallback = "left"; # fallback when not enough slaves for center mode
+
+        allow_small_split = false; # enable additional master windows in horizontal split
+        smart_resizing = true; # resizing direction based on mouse position
+        drop_at_cursor = true; # drag and drop windows at cursor position
+        special_scale_factor = 1.0; # scale factor for special workspace windows
       };
 
       # Gestures
@@ -140,6 +156,8 @@ in
         "$mainMod, R, exec, walker"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
+        "$mainMod SHIFT, L, exec, hyprctl keyword general:layout master" # switch to master layout
+        "$mainMod SHIFT, D, exec, hyprctl keyword general:layout dwindle" # switch to dwindle layout
 
         # Quick actions
         "$mainMod, F, fullscreen, 0"
@@ -156,6 +174,34 @@ in
         # Brightness controls
         ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+
+        # Master Layout specific bindings
+        "$mainMod, Return, layoutmsg, swapwithmaster auto" # swap focused window with master
+        "$mainMod SHIFT, Return, layoutmsg, focusmaster auto" # focus the master window
+        "$mainMod CTRL, Return, layoutmsg, cyclenext" # cycle through windows respecting layout
+        "$mainMod SHIFT CTRL, Return, layoutmsg, cycleprev" # cycle previous respecting layout
+
+        # Master layout manipulation
+        "$mainMod, equal, layoutmsg, addmaster" # add a master window
+        "$mainMod, minus, layoutmsg, removemaster" # remove a master window
+        "$mainMod SHIFT, equal, layoutmsg, mfact exact 0.65" # reset master factor to default
+        "$mainMod SHIFT, minus, layoutmsg, mfact exact 0.5" # set master factor to 50%
+        "$mainMod, bracketleft, layoutmsg, mfact -0.05" # decrease master size
+        "$mainMod, bracketright, layoutmsg, mfact +0.05" # increase master size
+
+        # Layout orientation controls
+        "$mainMod SHIFT, h, layoutmsg, orientationleft" # master on left
+        "$mainMod SHIFT, l, layoutmsg, orientationright" # master on right  
+        "$mainMod SHIFT, k, layoutmsg, orientationtop" # master on top
+        "$mainMod SHIFT, j, layoutmsg, orientationbottom" # master on bottom
+        "$mainMod SHIFT, c, layoutmsg, orientationcenter" # master in center
+        "$mainMod SHIFT, o, layoutmsg, orientationnext" # cycle orientation
+
+        # Advanced master controls
+        "$mainMod CTRL, n, layoutmsg, swapnext" # swap with next window
+        "$mainMod CTRL, p, layoutmsg, swapprev" # swap with previous window
+        "$mainMod ALT, n, layoutmsg, rollnext" # rotate next window to master
+        "$mainMod ALT, p, layoutmsg, rollprev" # rotate previous window to master
 
         # Move focus with mainMod + arrow keys
         "$mainMod, left, movefocus, l"
