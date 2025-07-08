@@ -40,124 +40,115 @@
       }
     ];
     style = ''
-      * {
-        background-image: none;
-        box-shadow: none;
-        font-family: "CaskaydiaCove Nerd Font", sans-serif;
-      }
-
       window {
-        background-color: rgba(30, 32, 48, 0.95);
-        backdrop-filter: blur(10px);
+        font-family: "CaskaydiaCove Nerd Font", sans-serif;
+        font-size: 12px;
+        color: #c0caf5;
+        background-color: rgba(0, 0, 8, .85);
       }
 
       button {
-        color: #E6F3FF;
-        background: linear-gradient(135deg, rgba(70, 130, 180, 0.9), rgba(135, 206, 235, 0.8));
-        border-style: solid;
-        border-width: 2px;
-        border-radius: 12px;
-        border-color: rgba(135, 206, 235, 0.6);
         background-repeat: no-repeat;
-        background-position: center;
-        background-size: 28%;
-        box-shadow: 
-          0 4px 15px rgba(0, 0, 0, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        background-position: center 15px;
+        background-size: 32px 32px;
+        border: 1px solid rgba(192, 202, 245, 0.1);
+        color: #c0caf5;
+        text-shadow: none;
+        border-radius: 16px;
+        background-color: rgba(19, 19, 29, 0.6);
         margin: 8px;
         min-height: 80px;
         min-width: 80px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 14px;
         font-weight: 500;
-        font-size: 12px;
+        transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        padding-top: 45px;
       }
 
       button:hover {
-        background: linear-gradient(135deg, rgba(135, 206, 235, 0.95), rgba(70, 130, 180, 0.9));
-        border-color: rgba(135, 206, 235, 0.9);
-        box-shadow: 
-          0 8px 25px rgba(135, 206, 235, 0.3),
-          0 4px 15px rgba(0, 0, 0, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px) scale(1.05);
+        background-color: rgba(26, 27, 38, 0.9);
+        border-color: rgba(192, 202, 245, 0.3);
+        color: #cdd6f4;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
       }
 
       button:focus {
-        background: linear-gradient(135deg, rgba(135, 206, 235, 1.0), rgba(70, 130, 180, 0.95));
-        border-color: #87CEEB;
-        box-shadow: 
-          0 0 0 3px rgba(135, 206, 235, 0.4),
-          0 8px 25px rgba(135, 206, 235, 0.4),
-          0 4px 15px rgba(0, 0, 0, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        transform: translateY(-2px) scale(1.05);
+        background-color: rgba(26, 27, 38, 0.9);
+        border-color: rgba(192, 202, 245, 0.4);
+        color: #cdd6f4;
+        outline: none;
       }
 
-      /* Modern icon styling using Unicode symbols */
+
+      /* Lock button */
       #lock {
-        background-image: none;
+        background-image: url("~/images/wlogout-icons/lock.svg");
+        background-position: center 15px;
+        color: #c0caf5;
       }
-      #lock:before {
-        content: "🔒";
-        font-size: 24px;
-        display: block;
-        text-align: center;
-        margin-bottom: 4px;
+      #lock:hover {
+        background-color: rgba(26, 27, 38, 0.9);
+        border-color: rgba(23, 147, 209, 0.5);
+        box-shadow: 0 8px 25px rgba(23, 147, 209, 0.2);
       }
 
+      /* Logout button */
       #logout {
-        background-image: none;
+        background-image: url("~/images/wlogout-icons/logout.svg");
+        background-position: center 15px;
+        color: #c0caf5;
       }
-      #logout:before {
-        content: "🚪";
-        font-size: 24px;
-        display: block;
-        text-align: center;
-        margin-bottom: 4px;
+      #logout:hover {
+        background-color: rgba(26, 27, 38, 0.9);
+        border-color: rgba(192, 202, 245, 0.5);
       }
 
+      /* Suspend button */
       #suspend {
-        background-image: none;
+        background-image: url("~/images/wlogout-icons/suspend.svg");
+        background-position: center 15px;
+        color: #c0caf5;
       }
-      #suspend:before {
-        content: "💤";
-        font-size: 24px;
-        display: block;
-        text-align: center;
-        margin-bottom: 4px;
+      #suspend:hover {
+        background-color: rgba(26, 27, 38, 0.9);
+        border-color: rgba(192, 202, 245, 0.5);
       }
 
+      /* Hibernate button */
       #hibernate {
-        background-image: none;
+        background-image: url("~/images/wlogout-icons/hibernate.svg");
+        background-position: center 15px;
+        color: #c0caf5;
       }
-      #hibernate:before {
-        content: "🐻";
-        font-size: 24px;
-        display: block;
-        text-align: center;
-        margin-bottom: 4px;
-      }
-
-      #shutdown {
-        background-image: none;
-      }
-      #shutdown:before {
-        content: "⏻";
-        font-size: 24px;
-        display: block;
-        text-align: center;
-        margin-bottom: 4px;
+      #hibernate:hover {
+        background-color: rgba(26, 27, 38, 0.9);
+        border-color: rgba(192, 202, 245, 0.5);
       }
 
+      /* Reboot button */
       #reboot {
-        background-image: none;
+        background-image: url("~/images/wlogout-icons/reboot.svg");
+        background-position: center 15px;
+        color: #c0caf5;
       }
-      #reboot:before {
-        content: "🔄";
-        font-size: 24px;
-        display: block;
-        text-align: center;
-        margin-bottom: 4px;
+      #reboot:hover {
+        background-color: rgba(26, 27, 38, 0.9);
+        border-color: rgba(192, 202, 245, 0.5);
+      }
+
+      /* Shutdown button with warning color */
+      #shutdown {
+        background-image: url("~/images/wlogout-icons/shutdown.svg");
+        background-position: center 15px;
+        color: #f7768e;
+        border-color: rgba(247, 118, 142, 0.2);
+      }
+      #shutdown:hover {
+        background-color: rgba(247, 118, 142, 0.15);
+        border-color: rgba(247, 118, 142, 0.6);
+        color: #f7768e;
+        box-shadow: 0 8px 25px rgba(247, 118, 142, 0.3);
       }
     '';
   };
