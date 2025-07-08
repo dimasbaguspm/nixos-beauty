@@ -204,27 +204,27 @@
 
   # Walker theme CSS file
   xdg.configFile."walker/themes/walker.css".text = ''
-    /* Walker theme with glass-like appearance similar to rofi */
+    /* Walker theme matching Hyprland desktop color palette */
     
-    @define-color bg-col rgba(10, 10, 20, 0.85);
-    @define-color bg-col-light rgba(20, 20, 40, 0.90);
-    @define-color bg-col-hover rgba(30, 30, 60, 0.95);
-    @define-color border-col rgba(135, 206, 235, 0.8);
-    @define-color selected-col rgba(70, 130, 180, 0.9);
-    @define-color active-col rgba(91, 167, 212, 0.85);
-    @define-color urgent-col rgba(255, 107, 107, 0.9);
-    @define-color blue rgba(135, 206, 235, 0.9);
-    @define-color fg-col #F0F8FF;
-    @define-color fg-col2 rgba(176, 224, 230, 0.9);
-    @define-color fg-col3 rgba(135, 206, 235, 0.95);
-    @define-color grey rgba(107, 140, 174, 0.8);
+    @define-color bg-col rgba(0, 0, 8, 0.7);
+    @define-color bg-col-light rgba(26, 27, 38, 0.9);
+    @define-color bg-col-hover rgba(26, 27, 38, 0.9);
+    @define-color border-col rgba(192, 202, 245, 0.3);
+    @define-color selected-col #13131d;
+    @define-color active-col #11111b;
+    @define-color urgent-col rgba(247, 118, 142, 0.9);
+    @define-color blue #1793d1;
+    @define-color fg-col #c0caf5;
+    @define-color fg-col2 #cdd6f4;
+    @define-color fg-col3 #1793d1;
+    @define-color grey rgba(192, 202, 245, 0.6);
     @define-color white #ffffff;
 
     /* Main window styling */
     #window {
       background-color: @bg-col;
-      border: 3px solid @border-col;
-      border-radius: 16px;
+      border: 2px solid @border-col;
+      border-radius: 12px;
       padding: 20px;
       margin: 0;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -238,14 +238,15 @@
       padding: 15px;
       margin: 0 0 20px 0;
       color: @fg-col;
-      font-family: "CaskaydiaCove Nerd Font";
-      font-size: 15px;
-      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+      font-family: "CaskaydiaCove Nerd Font", sans-serif;
+      font-size: 12px;
+      transition: background-color .3s ease-out;
     }
 
     #search:focus {
       border-color: @blue;
       background-color: @bg-col-hover;
+      color: @fg-col2;
     }
 
     /* List container */
@@ -258,21 +259,21 @@
     /* List items */
     #item {
       background-color: transparent;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 15px;
       margin: 2px 0;
       color: @fg-col;
-      transition: background-color 0.2s ease;
+      transition: background-color .3s ease-out;
     }
 
     #item:hover {
       background-color: @bg-col-hover;
+      color: @fg-col2;
     }
 
     #item:selected {
       background-color: @selected-col;
-      color: @white;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      color: @fg-col2;
     }
 
     /* Item icons */
@@ -284,19 +285,19 @@
     /* Item text */
     #item label {
       color: inherit;
-      font-family: "CaskaydiaCove Nerd Font";
-      font-size: 13px;
+      font-family: "CaskaydiaCove Nerd Font", sans-serif;
+      font-size: 12px;
     }
 
     /* Scrollbar styling */
     scrollbar {
       background-color: @bg-col-light;
-      border-radius: 8px;
+      border-radius: 12px;
     }
 
     scrollbar slider {
       background-color: @border-col;
-      border-radius: 8px;
+      border-radius: 12px;
       min-width: 4px;
     }
 
@@ -319,8 +320,8 @@
     /* Activation labels */
     .activation-label {
       background-color: @active-col;
-      color: @white;
-      border-radius: 6px;
+      color: @fg-col2;
+      border-radius: 12px;
       padding: 2px 6px;
       margin-right: 8px;
       font-size: 11px;
@@ -348,7 +349,7 @@
     /* Active items */
     #item.active {
       background-color: @active-col;
-      color: @white;
+      color: @fg-col2;
     }
 
     /* Sub-text styling */

@@ -58,8 +58,8 @@ in
         gaps_in = 2;
         gaps_out = 8;
         border_size = 2;
-        "col.active_border" = "rgba(87CEEBee) rgba(4682B4ee) 45deg"; # Sky blue gradient
-        "col.inactive_border" = "rgba(2C3E50aa)"; # Dark blue-gray
+        "col.active_border" = "rgb(c0caf5) rgb(1793d1) 45deg"; # Light blue-gray to accent blue gradient
+        "col.inactive_border" = "rgb(13131d)"; # Very dark purple from active workspace
 
         layout = "dwindle";
         allow_tearing = false;
@@ -67,7 +67,7 @@ in
 
       # Decoration settings
       decoration = {
-        rounding = 8;
+        rounding = 12;
 
         blur = {
           enabled = true;
@@ -147,7 +147,6 @@ in
         "$mainMod, T, togglegroup,"
         "$mainMod, Tab, changegroupactive,"
         "$mainMod SHIFT, R, exec, hyprctl reload"
-        "$mainMod, L, exec, hyprlock"
 
         # Audio controls
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
