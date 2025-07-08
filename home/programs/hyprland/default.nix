@@ -132,7 +132,6 @@ in
 
       # Window rules
       windowrulev2 = [
-        "float, class:^(kitty)$"
         "float, class:^(nautilus)$"
         "float, class:^(pavucontrol)$"
         "float, class:^(walker)$"
