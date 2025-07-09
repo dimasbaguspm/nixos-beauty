@@ -140,6 +140,11 @@ in
         "float, class:^(wlogout)$"
         "center, class:^(wlogout)$"
         "size 480 320, class:^(wlogout)$"
+        # Additional nautilus styling rules
+        "opacity 0.95 0.95, class:^(nautilus)$"
+        "rounding 12, class:^(nautilus)$"
+        "noshadow, class:^(nautilus)$"
+        "noborder, class:^(nautilus)$"
       ];
 
       # Key bindings

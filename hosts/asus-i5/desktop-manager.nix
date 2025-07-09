@@ -6,8 +6,20 @@
     xwayland.enable = true;
   };
 
+  # Enable dconf for GNOME applications
+  programs.dconf.enable = true;
+
   # Optional: Hint Electron apps to use Wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    # Fix for Nautilus display server connection
+    GDK_BACKEND = "wayland,x11";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    # Enable proper file manager integration
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
+  };
 
   # Enable XDG desktop portal for screen sharing and file picker
   xdg.portal = {
@@ -36,6 +48,17 @@
       };
     };
 
+    # Essential GNOME services for Nautilus
+    gnome = {
+      glib-networking.enable = true;
+      gnome-keyring.enable = true;
+      localsearch.enable = true; # Previously tracker-miners
+      tinysparql.enable = true; # Previously tracker
+    };
+
+    # GVFS for virtual file system support (trash, network, etc.)
+    gvfs.enable = true;
+
     # Keep audio services
     pipewire = {
       enable = true;
@@ -50,9 +73,13 @@
 
   # Enable some essential packages for Hyprland
   environment.systemPackages = with pkgs; [
-    # Better file manager
+    # Better file manager with dependencies
     nautilus
-    
+    sushi # File preview support for Nautilus
+    gnome-autoar # Archive support for Nautilus
+    tinysparql # File indexing (previously tracker)
+    localsearch # File indexing miners (previously tracker-miners)
+
     # Required for the default Hyprland config
     kitty
 
@@ -65,6 +92,12 @@
 
     # Image viewer
     feh
+
+    # GTK theme packages for consistent theming
+    gnome-themes-extra
+    papirus-icon-theme
+    bibata-cursors
+    adwaita-qt
 
     # Essential tools (these are needed at system level)
     libnotify # For notify-send command
