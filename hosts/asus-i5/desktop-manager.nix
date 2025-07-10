@@ -99,6 +99,10 @@
     bibata-cursors
     adwaita-qt
 
+    # Dependencies for proper GTK theme rendering
+    sassc # Required for building GTK themes
+    gtk-engine-murrine # Required for murrine-based themes like Kanagawa
+
     # Essential tools (these are needed at system level)
     libnotify # For notify-send command
     pipewire
