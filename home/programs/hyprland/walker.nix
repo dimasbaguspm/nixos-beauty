@@ -204,49 +204,67 @@
 
   # Walker theme CSS file
   xdg.configFile."walker/themes/walker.css".text = ''
-    /* Walker theme matching Hyprland desktop color palette */
+    /* Walker theme using official Kanagawa GTK variables */
     
-    @define-color bg-col rgba(0, 0, 8, 0.7);
-    @define-color bg-col-light rgba(26, 27, 38, 0.9);
-    @define-color bg-col-hover rgba(26, 27, 38, 0.9);
-    @define-color border-col rgba(192, 202, 245, 0.3);
-    @define-color selected-col #13131d;
-    @define-color active-col #11111b;
-    @define-color urgent-col rgba(247, 118, 142, 0.9);
-    @define-color blue #1793d1;
-    @define-color fg-col #c0caf5;
-    @define-color fg-col2 #cdd6f4;
-    @define-color fg-col3 #1793d1;
-    @define-color grey rgba(192, 202, 245, 0.6);
+    /* Import official Kanagawa GTK color variables */
+    @define-color theme_bg_color #1f1f28;
+    @define-color theme_fg_color #dcd7ba;
+    @define-color theme_base_color #1f1f28;
+    @define-color theme_text_color #dcd7ba;
+    @define-color theme_selected_bg_color #c8c093;
+    @define-color theme_selected_fg_color rgba(0, 0, 0, 0.87);
+    @define-color accent_bg_color #c8c093;
+    @define-color accent_color #c8c093;
+    @define-color borders rgba(220, 215, 186, 0.12);
+    @define-color warning_color #FDD633;
+    @define-color error_color #F28B82;
+    @define-color success_color #81C995;
+    
+    /* Walker-specific colors based on Kanagawa GTK */
+    @define-color bg-col rgba(31, 31, 40, 0.95);          /* theme_bg_color with transparency */
+    @define-color bg-col-light rgba(31, 31, 40, 0.9);     /* theme_base_color */
+    @define-color bg-col-hover rgba(200, 192, 147, 0.1);  /* accent_color with low opacity */
+    @define-color border-col rgba(220, 215, 186, 0.12);   /* borders */
+    @define-color selected-col #c8c093;                   /* theme_selected_bg_color */
+    @define-color active-col rgba(200, 192, 147, 0.2);    /* accent_color with transparency */
+    @define-color urgent-col #F28B82;                     /* error_color */
+    @define-color blue #c8c093;                           /* accent_color */
+    @define-color fg-col #dcd7ba;                         /* theme_fg_color */
+    @define-color fg-col2 #c8c093;                        /* accent_color */
+    @define-color fg-col3 #c8c093;                        /* accent_color */
+    @define-color grey rgba(220, 215, 186, 0.5);          /* theme_fg_color with transparency */
     @define-color white #ffffff;
+    @define-color yellow #FDD633;                         /* warning_color - for icons */
 
-    /* Main window styling */
+    /* Main window styling - matching GTK dialog/popover */
     #window {
-      background-color: @bg-col;
-      border: 2px solid @border-col;
-      border-radius: 12px;
-      padding: 20px;
+      background-color: @theme_bg_color;
+      border: 1px solid @borders;
+      border-radius: 6px;
+      padding: 16px;
       margin: 0;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(220, 215, 186, 0.05);
     }
 
-    /* Search input styling */
+    /* Search input styling - matching GTK entry */
     #search {
-      background-color: @bg-col-light;
-      border: 2px solid @border-col;
-      border-radius: 12px;
-      padding: 15px;
-      margin: 0 0 20px 0;
-      color: @fg-col;
+      background-color: @theme_base_color;
+      border: 1px solid @borders;
+      border-radius: 6px;
+      padding: 12px;
+      margin: 0 0 16px 0;
+      color: @theme_text_color;
       font-family: "CaskaydiaCove Nerd Font", sans-serif;
       font-size: 12px;
-      transition: background-color .3s ease-out;
+      transition: all .2s ease-out;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
     }
 
     #search:focus {
-      border-color: @blue;
-      background-color: @bg-col-hover;
-      color: @fg-col2;
+      border-color: @accent_color;
+      background-color: @theme_base_color;
+      color: @theme_text_color;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 1px @accent_color;
     }
 
     /* List container */
@@ -256,30 +274,48 @@
       padding: 0;
     }
 
-    /* List items */
+    /* List items - matching GTK list/tree view styling */
     #item {
       background-color: transparent;
-      border-radius: 12px;
-      padding: 15px;
-      margin: 2px 0;
-      color: @fg-col;
-      transition: background-color .3s ease-out;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin: 1px 0;
+      color: @theme_text_color;
+      transition: all .15s ease-out;
+      border: 1px solid transparent;
     }
 
     #item:hover {
       background-color: @bg-col-hover;
-      color: @fg-col2;
+      color: @theme_text_color;
+      border-color: @borders;
     }
 
     #item:selected {
-      background-color: @selected-col;
-      color: @fg-col2;
+      background-color: @theme_selected_bg_color;
+      color: @theme_selected_fg_color;
+      border-color: @accent_color;
     }
 
-    /* Item icons */
+    /* Item icons - using yellow accent like Nautilus */
     #item image {
       margin-right: 12px;
       -gtk-icon-size: 32px;
+      color: @yellow;
+      -gtk-icon-style: symbolic;
+    }
+
+    /* Special styling for different item types */
+    #item.application image {
+      color: @yellow;
+    }
+
+    #item.file image {
+      color: @accent_color;
+    }
+
+    #item.folder image {
+      color: @success_color;
     }
 
     /* Item text */
@@ -289,43 +325,52 @@
       font-size: 12px;
     }
 
-    /* Scrollbar styling */
+    /* Scrollbar styling - matching GTK scrollbar */
     scrollbar {
-      background-color: @bg-col-light;
-      border-radius: 12px;
+      background-color: transparent;
+      border-radius: 6px;
+      margin: 2px;
     }
 
     scrollbar slider {
-      background-color: @border-col;
-      border-radius: 12px;
-      min-width: 4px;
+      background-color: @borders;
+      border-radius: 6px;
+      min-width: 6px;
+      min-height: 6px;
+      margin: 2px;
+      transition: background-color .15s ease-out;
     }
 
     scrollbar slider:hover {
-      background-color: @blue;
+      background-color: @accent_color;
     }
 
-    /* Spinner for loading */
+    scrollbar slider:active {
+      background-color: @accent_color;
+    }
+
+    /* Spinner for loading - using accent color */
     #spinner {
-      color: @blue;
-      margin: 10px;
+      color: @accent_color;
+      margin: 8px;
     }
 
-    /* Placeholder text */
+    /* Placeholder text - matching GTK placeholder */
     .placeholder {
       color: @grey;
       font-style: italic;
     }
 
-    /* Activation labels */
+    /* Activation labels - matching GTK button styling */
     .activation-label {
-      background-color: @active-col;
-      color: @fg-col2;
-      border-radius: 12px;
+      background-color: @theme_selected_bg_color;
+      color: @theme_selected_fg_color;
+      border-radius: 4px;
       padding: 2px 6px;
       margin-right: 8px;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: bold;
+      border: 1px solid @borders;
     }
 
     /* Module-specific styling */
@@ -340,23 +385,36 @@
     #window.finder {}
     #window.websearch {}
 
-    /* Urgent/error items */
+    /* Urgent/error items - using GTK error color */
     #item.urgent {
-      background-color: @urgent-col;
-      color: @white;
+      background-color: @error_color;
+      color: rgba(0, 0, 0, 0.87);
     }
 
-    /* Active items */
+    /* Active items - using GTK accent */
     #item.active {
       background-color: @active-col;
-      color: @fg-col2;
+      color: @theme_text_color;
     }
 
-    /* Sub-text styling */
+    /* Sub-text styling - matching GTK dim labels */
     #item .sub {
-      color: @fg-col2;
-      font-size: 11px;
-      opacity: 0.8;
+      color: @grey;
+      font-size: 10px;
+      opacity: 0.7;
+    }
+
+    /* Additional Nautilus-inspired styling */
+    #item.directory image {
+      color: @success_color;
+    }
+
+    #item.executable image {
+      color: @warning_color;
+    }
+
+    #item.document image {
+      color: @accent_color;
     }
   '';
 

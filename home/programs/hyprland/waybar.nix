@@ -119,27 +119,28 @@
     };
 
     style = ''
+      /* Kanagawa color scheme for Waybar */
       * {
         font-family:"CaskaydiaCove Nerd Font", sans-serif;
         font-size: 12px;
-        transition: background-color .3s ease-out;
+        transition: background-color .2s ease-out;
         min-height: 0;
       }
 
       window#waybar {
         background: transparent;
         transition-property: background-color;
-        transition-duration: .5s;
+        transition-duration: .3s;
       }
-
 
       .modules-left,
       .modules-center,
       .modules-right {
-        background: rgba(0, 0, 8, .7);
+        background: rgba(31, 31, 40, 0.9);        /* #1f1f28 - theme_bg_color */
         margin: 5px 10px;
         padding: 4px;
-        border-radius: 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(220, 215, 186, 0.12);  /* borders */
       }
 
       .modules-center {
@@ -157,8 +158,9 @@
       #tray,
       #custom-logout {
         padding: 8px;
-        border-radius: 12px;
+        border-radius: 6px;
         margin: 0 2px;
+        color: #dcd7ba;                           /* theme_fg_color */
       }
 
       #clock:hover,
@@ -171,25 +173,28 @@
       #language:hover,
       #tray:hover,
       #custom-logout:hover {
-        background: rgba(26, 27, 38, 0.9);
+        background: rgba(200, 192, 147, 0.1);    /* accent_color with low opacity */
+        border-radius: 6px;
       }
 
       #workspaces button {
         background: transparent;
         font-weight: 900;
-        color: #c0caf5;
+        color: #dcd7ba;                           /* theme_fg_color */
         border: none;
-        border-radius: 12px;
+        border-radius: 6px;
         margin: 0 2px;
+        padding: 4px 8px;
       }
 
       #workspaces button.active {
-        background: #13131d;
+        background: #c8c093;                     /* theme_selected_bg_color */
+        color: rgba(0, 0, 0, 0.87);             /* theme_selected_fg_color */
       }
 
       #workspaces button:hover {
-        background: #11111b;
-        color: #cdd6f4;
+        background: rgba(200, 192, 147, 0.2);    /* accent_color with transparency */
+        color: #dcd7ba;                          /* theme_fg_color */
         box-shadow: none;
       }
 
@@ -197,56 +202,80 @@
         margin: 0px 5px;
         padding: 4px;
         font-size: 16px;
-        transition: color .5s;
-        color: #c0caf5;
+        transition: color .3s;
+        color: #FDD633;                          /* warning_color - yellow accent */
       }
       
       #custom-nixos:hover {
-        color: #1793d1;
+        color: #c8c093;                          /* accent_color */
       }
 
       #cpu {
-        color: #c0caf5;
+        color: #dcd7ba;                          /* theme_fg_color */
       }
 
       #memory {
-        color: #c0caf5;
+        color: #dcd7ba;                          /* theme_fg_color */
       }
 
       #temperature {
-        color: #c0caf5;
+        color: #dcd7ba;                          /* theme_fg_color */
       }
 
       #network {
-        color: #c0caf5;
+        color: #dcd7ba;                          /* theme_fg_color */
       }
 
       #pulseaudio {
-        color: #c0caf5;
+        color: #dcd7ba;                          /* theme_fg_color */
       }
 
       #idle_inhibitor {
-        color: #c0caf5;
+        color: #dcd7ba;                          /* theme_fg_color */
       }
 
       #language {
-        color: #c0caf5;
+        color: #dcd7ba;                          /* theme_fg_color */
       }
 
       #custom-logout {
-        color: #f7768e;
+        color: #F28B82;                          /* error_color - red for power */
         font-weight: bold;
         padding: 8px;
-        border-radius: 9999px;
+        border-radius: 50%;
       }
 
       #custom-logout:hover {
-        background: rgba(247, 118, 142, 0.2);
+        background: rgba(242, 139, 130, 0.2);    /* error_color with transparency */
       }
 
       #clock {
         font-weight: bold;
-        color: #c0caf5;
+        color: #c8c093;                          /* accent_color */
+      }
+
+      /* Temperature warning states */
+      #temperature.critical {
+        color: #F28B82;                          /* error_color */
+      }
+
+      /* Network states */
+      #network.disconnected {
+        color: #F28B82;                          /* error_color */
+      }
+
+      /* Audio states */
+      #pulseaudio.muted {
+        color: rgba(220, 215, 186, 0.5);        /* theme_fg_color dimmed */
+      }
+
+      /* Idle inhibitor states */
+      #idle_inhibitor.activated {
+        color: #81C995;                          /* success_color */
+      }
+
+      #idle_inhibitor.deactivated {
+        color: rgba(220, 215, 186, 0.5);        /* theme_fg_color dimmed */
       }
     '';
   };
