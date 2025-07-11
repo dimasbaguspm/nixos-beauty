@@ -58,8 +58,8 @@ in
         gaps_in = 2;
         gaps_out = 8;
         border_size = 2;
-        "col.active_border" = "rgb(c0caf5) rgb(1793d1) 45deg"; # Light blue-gray to accent blue gradient
-        "col.inactive_border" = "rgb(13131d)"; # Very dark purple from active workspace
+        "col.active_border" = "rgba(e6c384ff) rgba(7e9cd8ff) 45deg"; # Kanagawa carpYellow to crystalBlue gradient
+        "col.inactive_border" = "rgba(54546dff)"; # Kanagawa sumiInk6 for inactive borders
 
         layout = "master";
         allow_tearing = false;
@@ -87,7 +87,7 @@ in
           "windows, 1, 7, myBezier"
           "windowsOut, 1, 7, default, popin 80%"
           "border, 1, 10, default"
-          "borderangle, 1, 8, default"
+          "borderangle, 1, 8, default, loop" # Animated rotating border
           "fade, 1, 7, default"
           "workspaces, 1, 6, default"
         ];
