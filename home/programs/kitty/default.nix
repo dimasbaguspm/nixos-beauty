@@ -1,34 +1,41 @@
-{ userMetaData, ... }:
-let
-  wallpapers = {
-    "kyrielle" = "kristin-lina-1.png";
-    "kaluna" = "red-1.png";
-    "leshia" = "kristin-lina-2.jpg";
-    "silvia" = "kristin-lina-3.png";
-  };
-
-  randomWallpaper = wallpapers.${userMetaData.username};
-in
+{ ... }:
 {
   programs.kitty = {
     enable = true;
     settings = {
       copy_on_select = true;
 
-      # Background with better blur effect
-      background_image = "~/images/${randomWallpaper}";
-      background_opacity = "0.85";
-      background_image_layout = "scaled";
-      background_image_linear = true;
-      background_tint = "0.9";
-      background_blur = 3;
+      # Transparent background with blur
+      background_opacity = "0.75";
+      background_blur = 25;
+      background_tint = "0.2";
 
-      # Theme colors - blue sky theme
-      foreground = "#E6F3FF";
-      background = "#1e2030";
-      cursor = "#87CEEB";
-      selection_foreground = "#1e2030";
-      selection_background = "#87CEEB";
+      # Kanagawa theme colors
+      foreground = "#dcd7ba"; # fujiWhite
+      background = "#1f1f28"; # sumiInk3
+      cursor = "#c8c093"; # oldWhite
+      selection_foreground = "#1f1f28"; # sumiInk3
+      selection_background = "#c8c093"; # oldWhite
+
+      # Normal colors
+      color0 = "#16161d"; # sumiInk0
+      color1 = "#c34043"; # autumnRed
+      color2 = "#76946a"; # autumnGreen
+      color3 = "#c0a36e"; # boatYellow2
+      color4 = "#7e9cd8"; # crystalBlue
+      color5 = "#957fb8"; # oniViolet
+      color6 = "#6a9589"; # waveAqua1
+      color7 = "#c8c093"; # oldWhite
+
+      # Bright colors
+      color8 = "#727169"; # fujiGray
+      color9 = "#e82424"; # samuraiRed
+      color10 = "#98bb6c"; # springGreen
+      color11 = "#e6c384"; # carpYellow
+      color12 = "#7fb4ca"; # springBlue
+      color13 = "#938aa9"; # oniViolet2
+      color14 = "#7aa89f"; # waveAqua2
+      color15 = "#dcd7ba"; # fujiWhite
 
       # Reduced padding for less spacing
       window_padding_width = 3;
