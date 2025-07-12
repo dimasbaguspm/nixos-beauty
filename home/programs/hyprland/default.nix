@@ -179,6 +179,13 @@ in
         "$mainMod, Tab, changegroupactive,"
         "$mainMod SHIFT, R, exec, hyprctl reload"
 
+        # Window minimize/restore
+        "$mainMod, N, movetoworkspacesilent, special:minimized"
+        "$mainMod SHIFT, N, togglespecialworkspace, minimized"
+
+        # Restore focused window from minimized workspace back to current workspace
+        "$mainMod, U, movetoworkspacesilent, e+0"
+
         # Audio controls
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"

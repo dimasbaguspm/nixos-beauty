@@ -8,7 +8,7 @@
         height = 35;
 
         # Following SimpleBlueColorWaybar layout
-        modules-left = [ "custom/nixos" "hyprland/workspaces" ];
+        modules-left = [ "custom/nixos" "custom/minimized" "hyprland/workspaces" ];
         modules-center = [ "clock" ];
         modules-right = [ "tray" "idle_inhibitor" "pulseaudio" "bluetooth" "cpu" "memory" "temperature" "hyprland/language" "network" "custom/logout" ];
 
@@ -127,6 +127,17 @@
           tooltip = "Power Menu";
           on-click = "wlogout";
         };
+
+        # Minimized windows indicator
+        "custom/minimized" = {
+          format = "󱂬 ";
+          return-type = "json";
+          interval = 2;
+          exec = "bash -c 'count=$(hyprctl clients -j | jq -r \"[.[] | select(.workspace.name == \\\"special:minimized\\\")] | length\"); if [ \"$count\" -eq 0 ]; then echo \"{\\\"text\\\": \\\"\\\", \\\"tooltip\\\": \\\"No minimized windows\\\", \\\"class\\\": \\\"empty\\\"}\"; else echo \"{\\\"text\\\": \\\"  $count\\\", \\\"tooltip\\\": \\\"$count minimized windows\\nClick to toggle view\\nShift+Click to restore all\\\", \\\"class\\\": \\\"minimized\\\"}\"; fi'";
+          on-click = "hyprctl dispatch togglespecialworkspace minimized";
+          on-click-right = "hyprctl dispatch movetoworkspacesilent e+0 && hyprctl dispatch togglespecialworkspace minimized";
+          tooltip = true;
+        };
       };
     };
 
@@ -169,7 +180,8 @@
       #idle_inhibitor,
       #language,
       #tray,
-      #custom-logout {
+      #custom-logout,
+      #custom-minimized {
         padding: 8px;
         border-radius: 6px;
         margin: 0 2px;
@@ -186,7 +198,8 @@
       #idle_inhibitor:hover,
       #language:hover,
       #tray:hover,
-      #custom-logout:hover {
+      #custom-logout:hover,
+      #custom-minimized:hover {
         background: rgba(200, 192, 147, 0.1);    /* accent_color with low opacity */
         border-radius: 6px;
       }
@@ -315,6 +328,20 @@
 
       #bluetooth.discoverable {
         color: #e6c384;                          /* carpYellow - discoverable mode */
+      }
+
+      /* Minimized windows indicator */
+      #custom-minimized {
+        color: #7e9cd8;                          /* crystalBlue - minimized indicator */
+        font-weight: bold;
+      }
+
+      #custom-minimized:hover {
+        background: rgba(126, 156, 216, 0.2);    /* crystalBlue with transparency */
+      }
+
+      #custom-minimized.empty {
+        color: rgba(220, 215, 186, 0.3);        /* theme_fg_color heavily dimmed when no minimized windows */
       }
     '';
   };
