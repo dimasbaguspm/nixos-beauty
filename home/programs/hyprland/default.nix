@@ -145,6 +145,15 @@ in
         "rounding 12, class:^(nautilus)$"
         "noshadow, class:^(nautilus)$"
         "noborder, class:^(nautilus)$"
+        # Bluetooth application rules
+        "float, class:^(blueman-manager)$"
+        "center, class:^(blueman-manager)$"
+        "size 600 400, class:^(blueman-manager)$"
+        "opacity 0.95 0.95, class:^(blueman-manager)$"
+        "rounding 12, class:^(blueman-manager)$"
+        "float, class:^(bluetuith)$"
+        "center, class:^(bluetuith)$"
+        "size 800 600, class:^(bluetuith)$"
       ];
 
       # Key bindings
@@ -174,6 +183,10 @@ in
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+        # Bluetooth controls
+        "$mainMod, B, exec, blueman-manager" # Open Bluetooth manager
+        "$mainMod SHIFT, B, exec, bluetuith" # Open TUI Bluetooth manager
 
         # Brightness controls
         ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
@@ -284,6 +297,7 @@ in
         "dunst"
         "walker --gapplication-service"
         "mkdir -p ~/Pictures" # Ensure Pictures directory exists
+        "blueman-applet" # Bluetooth system tray applet
       ];
     };
   };

@@ -7,5 +7,6 @@
     ./internationalization.nix
     ./environment.nix
     ./docker.nix
+    ./bluetooth.nix
   ];
 }

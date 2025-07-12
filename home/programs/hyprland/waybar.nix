@@ -10,7 +10,7 @@
         # Following SimpleBlueColorWaybar layout
         modules-left = [ "custom/nixos" "hyprland/workspaces" ];
         modules-center = [ "clock" ];
-        modules-right = [ "tray" "idle_inhibitor" "pulseaudio" "cpu" "memory" "temperature" "hyprland/language" "network" "custom/logout" ];
+        modules-right = [ "tray" "idle_inhibitor" "pulseaudio" "bluetooth" "cpu" "memory" "temperature" "hyprland/language" "network" "custom/logout" ];
 
         # logo 
         "custom/nixos" = {
@@ -57,13 +57,25 @@
           "format-icons" = {
             "headphone" = "";
             "hands-free" = "";
-            "headset" = "";
+            "headset" = "";
             "phone" = "";
             "portable" = "";
             "car" = "";
             "default" = [ "" "" "" ];
           };
           on-click = "pavucontrol";
+        };
+
+        bluetooth = {
+          "format" = " {status}";
+          "format-connected" = " {device_alias}";
+          "format-connected-battery" = " {device_alias} {device_battery_percentage}%";
+          "tooltip-format" = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
+          "tooltip-format-connected" = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
+          "tooltip-format-enumerate-connected" = "{device_alias}\t{device_address}";
+          "tooltip-format-enumerate-connected-battery" = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+          "on-click" = "blueman-manager";
+          "on-click-right" = "bluetuith";
         };
 
         # Clock (centered)
@@ -153,6 +165,7 @@
       #temperature,
       #network,
       #pulseaudio,
+      #bluetooth,
       #idle_inhibitor,
       #language,
       #tray,
@@ -169,6 +182,7 @@
       #temperature:hover,
       #network:hover,
       #pulseaudio:hover,
+      #bluetooth:hover,
       #idle_inhibitor:hover,
       #language:hover,
       #tray:hover,
@@ -276,6 +290,31 @@
 
       #idle_inhibitor.deactivated {
         color: rgba(220, 215, 186, 0.5);        /* theme_fg_color dimmed */
+      }
+
+      /* Bluetooth states */
+      #bluetooth {
+        color: #dcd7ba;                          /* theme_fg_color - default */
+      }
+
+      #bluetooth.on {
+        color: #7e9cd8;                          /* crystalBlue - enabled but not connected */
+      }
+
+      #bluetooth.connected {
+        color: #81C995;                          /* success_color - connected */
+      }
+
+      #bluetooth.off {
+        color: rgba(220, 215, 186, 0.3);        /* theme_fg_color heavily dimmed */
+      }
+
+      #bluetooth.disabled {
+        color: rgba(220, 215, 186, 0.3);        /* theme_fg_color heavily dimmed */
+      }
+
+      #bluetooth.discoverable {
+        color: #e6c384;                          /* carpYellow - discoverable mode */
       }
     '';
   };
