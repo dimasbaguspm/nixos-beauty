@@ -2,6 +2,8 @@
 
 This repository contains my personal NixOS configuration, designed to be modular, and reproducible
 
+![NixOS Beauty Preview](image.png)
+
 ## Directory Structure
 
 ```bash
