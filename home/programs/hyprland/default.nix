@@ -87,7 +87,7 @@ in
           "windows, 1, 7, myBezier"
           "windowsOut, 1, 7, default, popin 80%"
           "border, 1, 10, default"
-          "borderangle, 1, 16, default, loop"
+          "borderangle, 1, 8, default, loop" # Animated rotating border
           "fade, 1, 7, default"
           "workspaces, 1, 6, default"
         ];

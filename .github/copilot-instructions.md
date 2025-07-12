@@ -42,6 +42,13 @@ userMetaData = { inherit username; env = import ./users/${username}.metadata.nix
 2. Create `home/users/<username>.secret.yaml` for encrypted secrets
 3. Update `.config.nix` to switch active user
 
+### Fetching GitHub Repository Hashes
+When using `pkgs.fetchFromGitHub` in configurations, get the correct SHA hash with:
+```bash
+nix-shell -p nix-prefetch-github --run "nix-prefetch-github owner repo"
+```
+This returns JSON with `rev` and `hash` fields needed for fetchFromGitHub.
+
 ### Program Configuration Pattern
 - All programs in `home/programs/` follow the same structure
 - Import pattern: `{ userMetaData, ... }:` to access user-specific data
