@@ -272,9 +272,17 @@ in
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-        # Example: Scroll through existing workspaces (kept for reference)
-        # "$mainMod, mouse_down, workspace, e+1"
-        # "$mainMod, mouse_up, workspace, e-1"
+        # Move window to adjacent workspace (vim keys only)
+        "$mainMod CTRL, h, movetoworkspace, e-1"
+        "$mainMod CTRL, l, movetoworkspace, e+1"
+
+        # Move window to workspace and follow it (vim keys only)
+        "$mainMod ALT, h, movetoworkspacesilent, e-1"
+        "$mainMod ALT, l, movetoworkspacesilent, e+1"
+
+        # Mouse workspace scrolling
+        "$mainMod, mouse_down, workspace, e+1"
+        "$mainMod, mouse_up, workspace, e-1"
 
         # Screenshot bindings
         ", Print, exec, ~/.local/bin/screenshot area"
