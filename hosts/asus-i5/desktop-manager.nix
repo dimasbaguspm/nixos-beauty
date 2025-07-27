@@ -73,6 +73,7 @@
 
   # Enable some essential packages for Hyprland
   environment.systemPackages = with pkgs; [
+    flatpak
     # Better file manager with dependencies
     nautilus
     sushi # File preview support for Nautilus
@@ -108,4 +109,16 @@
     pipewire
     wireplumber
   ];
+
+  # Enable Flatpak system-wide
+  services.flatpak.enable = true;
+
+  # Ensure Flathub is added as a Flatpak remote at boot (per NixOS Wiki best practice)
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
 }
