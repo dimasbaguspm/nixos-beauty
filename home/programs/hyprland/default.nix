@@ -27,7 +27,13 @@ in
     settings = {
       # Monitor configuration
       monitor = [
-        ",preferred,auto,auto"
+        "HDMI-A-3,1920x1080@60,0x0,1" # Samsung left, workspace 1
+        "HDMI-A-2,1920x1080@100,1920x0,1" # Lenovo right, workspace 1
+      ];
+      # Force both monitors to start on workspace 1 for unified workspace
+      workspace = [
+        "HDMI-A-3,1"
+        "HDMI-A-2,1"
       ];
 
       # Environment variables
@@ -238,22 +244,6 @@ in
         "$mainMod, l, movefocus, r"
         "$mainMod, k, movefocus, u"
         "$mainMod, j, movefocus, d"
-
-        # Navigate between windows with Alt + Tab
-        "ALT, Tab, cyclenext,"
-        "ALT SHIFT, Tab, cyclenext, prev"
-
-        # Switch workspaces with Alt + hjkl (vim keys)
-        "ALT, h, workspace, e-1"
-        "ALT, l, workspace, e+1"
-        "ALT, k, workspace, e-1"
-        "ALT, j, workspace, e+1"
-
-        # Switch workspaces with Alt + arrow keys
-        "ALT, left, workspace, e-1"
-        "ALT, right, workspace, e+1"
-        "ALT, up, workspace, e-1"
-        "ALT, down, workspace, e+1"
 
         # Switch workspaces with mainMod + [0-9]
         "$mainMod, 1, workspace, 1"
