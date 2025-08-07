@@ -5,7 +5,7 @@
 let
   inherit (userMetaData) username;
   # define the version of vscode that want to use
-  version = "1.102.0";
+  version = "1.103.0";
 in
 {
   programs.vscode = {
@@ -15,7 +15,7 @@ in
       src = pkgs.fetchurl {
         name = "VSCode_${version}_linux-x64.tar.gz";
         url = "https://update.code.visualstudio.com/${version}/linux-x64/stable";
-        sha256 = "sha256-zgrNohvsmhcRQmkX7Io2/U3qbVWdcqwT7VK7Y3ENb9g=";
+        sha256 = "sha256-Fji3/9T8X2VQH6gUhReSuniuX2BX+4S7uPJWEZn56vc=";
       };
     });
     profiles = {
@@ -69,6 +69,12 @@ in
             streetsidesoftware.code-spell-checker
           ]
           ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+            {
+              name = "vscode-containers";
+              publisher = "ms-azuretools";
+              version = "2.1.0";
+              sha256 = "sha256-96JLAM2b/FUR1TA/u9GPdQJmhSGUNMarbuhEhID8c6g=";
+            }
             {
               name = "copilot";
               publisher = "github";
