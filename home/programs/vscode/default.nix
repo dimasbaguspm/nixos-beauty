@@ -24,6 +24,9 @@ in
           "files.autoSave" = "off";
           "editor.fontFamily" = "'CaskaydiaCove Nerd Font', 'monospace', monospace";
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          "[json]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
           "editor.formatOnSave" = true;
           "editor.formatOnPaste" = true;
           "editor.formatOnType" = false;
