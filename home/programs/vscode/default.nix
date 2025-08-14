@@ -70,6 +70,12 @@ in
           ]
           ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
+              name = "prettier-vscode";
+              publisher = "esbenp";
+              version = "11.0.0";
+              sha256 = "sha256-pNjkJhof19cuK0PsXJ/Q/Zb2H7eoIkfXJMLZJ4lDn7k=";
+            }
+            {
               name = "vscode-containers";
               publisher = "ms-azuretools";
               version = "2.1.0";
